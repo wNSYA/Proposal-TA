@@ -5,34 +5,59 @@
 \label{chap:pendahuluan}
 % --- Latar Belakang ---
 \section{Latar Belakang}
-Latar Belakang menjelaskan dasar pemikiran, motivasi, kebutuhan, alasan, atau urgensi pemilihan masalah tugas akhir. Subbab ini berisi penjelasan ringkas tentang kondisi atau situasi yang ada saat ini terkait dengan topik yang dibahas. Tujuan utamanya adalah untuk memberikan informasi secukupnya kepada pembaca agar memahami topik yang akan dibahas. Dalam subbab ini, jelaskan hal-hal berikut ini:
-\begin{enumerate}
-\item	Kondisi atau situasi topik yang dibahas beserta permasalahannya, misalnya tentang pengelolaan informasi di puskesmas daerah pedesaan dan masalah yang dihadapi.
-\item	Berbagai solusi yang telah diterapkan atau solusi yang tersedia dan memungkinkan untuk diterapkan untuk menyelesaikan masalah tersebut.
-\end{enumerate}
+Dalam pengolaan gedung cerdas, aspek keamanan dan keselamatan dalam gedung yang terintegrasi merupakan salah satu aspek yang sangat penting untuk segera diimplementasikan dengan baik. Aktivitas perusahaan, karyawan maupun pengunjung yang beragam dan kompleks membutuhkan adanya suatu sistem kontrol akses yang bukan hanya mengatur keluar masuknya karyawan dan pengunjung, tetapi juga dapat mendukung dan membantu saat terjadinya keadaan darurat atau bencana. Sistem yang dapat membantu mengontrol dan mengenali karyawan atau pengunjung secara tepat dan cepat menjadi salah satu elemen penting dalam mewujudkan hal tersebut. 
 
+Kebutuhan sistem ini juga disebutkan dalam Peraturan Menteri Pekerjaan Umum dan Perumahan Rakyat (PUPR) Nomor 10 Tahun 2023 tentang Bangunan Gedung Cerdas. Regulasi ini menyebutkan pada Pasal 4 ayat (2) bahwa prinsip Bangunan Gedung Cerdas (BGC) harus memiliki sistem-sistem yang bekerja otomatis dan terintegrasi satu sama lain. Peraturan ini juga menyebutkan pada Pasal 5 bahwa elemen BGC harus terintegrasi dalam Sistem Manajemen Bangunan Gedung (\textit{building management system}), dimana elemen terebut diantaranya adalah sistem kontrol akses gedung. 
+
+Science Techno Park (STP) Gedebage, atau biasa disebut juga ITB Innovation Park (IIP) Bandung Technopolis, merupakan infrastruktur yang dibangun untuk mendorong inovasi dan komersialisasi produk-produk teknologi milik Institut Teknologi Bandung (ITB). Saat ini, Gedung IIP masih belum menerapkan sistem kontrol akses yang otomatis dapat diintegrasikan dengan sistem-sistem lain yang ada pada gedung. Hal ini dapat menyebabkan inefisiensi dalam pengelolaan akses karyawan yang penghuni yang diestimasi dapat menampung hingga 1200 orang. Gedung IIP membutuhkan membutuhkan sistem kontrol akses yang mampu memverifikasi identitas karyawan secara cepat tanpa memyebabkan antrian, serta memberikan karyawan kemudahan dalam menggunakannya. Namun, penerapan kontrol akses otomatis tersebut tetap harus dilakukan dengan pertimbangan keselamatan penghuni dan karyawan gedung saat keadaan darurat dan bencana.
+
+Kebutuhan akan sistem yang mempertimbangkan keselamatan dibahas dalam Peraturan Pemerintah (PP) Nomor 16 Tahun 2021 tentang Peraturan Pelaksanaan Undang-Undang Nomor 28 Tahun 2002 tentang Bangunan Gedung. Peraturan ini menyebutkan pada Pasal 28 ayat (1) bahwa setiap Bangunan Gedung harus memenuhi ketentuan aspek keselamatan Bangunan gedung. Berdasarkan peraturan ini, dapat disimpulkan bahwa pengembangan fasilitas gedung harus dilakukan dengan keselamatan sebagai pertimbangan. Aspek keselamatan juga dibahas pada Surat Edaran Menteri Pekerjaan Umum Nomor 22/SE/M/2024 tentang Pedoman Penilaian Kinerja Bangunan Gedung Cerdas Tahap Pemanfaatan Dan Pemeriksaan Kinerja Bangunan Gedung Cerdas Tahap Pembongkaran. Surat edaran ini menyebutkan bahwa sistem kontrol akses membutuhkan panduan operasional terkait titik kumpul yang berisi prosedur evakuasi dan pengumpulan titik aman dalam keaadaan darurat. 
+
+Teknologi gerbang \textit{fail-safe} otomatis dengan pengenalan wajah dan mekanisme darurat hadir sebagai solusi yang relevan untuk menjawab kebutuhan tersebut. Dibandingkan metode biometrik lain seperti sidik jari yang memerlukan kontak fisik, pengenalan wajah menawarkan mekanisme tanpa kontak yang lebih higenis dan cepat \autocite{Gupta}. Penerapan teknologi ini memungkinkan adanya sistem kontrol akses yang efisien tanpa hambatan fisik yang berarti. Penggunaan gerbang yang terbuka dalam kondisi tanpa listrik (\textit{fail-safe}) dan mekanisme darurat sangat relevan sebagai langkah untuk mencegah sistem kontrol akses menjadi hambatan dalam penerapan keselamatan Bangunan Gedung saat keadaan darurat.  
+
+Berdasarkan analisis tersebut, tugas akhir ini mengusulkan perancangan sistem kontrol akses berbasis pengenalan wajah untuk kondisi darurat dan bencana pada bangunan cerdas. Sistem ini dirancang sebagai solusi menyeluruh yang meliputi perangkat keras dan perangkat lunak sistem. Sistem akan diwujudkan dalam bentuk prototipe fungsional yang menintegrasikan komponen-komponen tertentu yang dapat berperan sebagai kontrol akses pada gedung dengan tetap mempertimbangkan aspek keselamatan.
 % --- Rumusan Masalah ---
 \section{Rumusan Masalah}
-Rumusan Masalah berisi masalah utama yang dibahas dalam tugas akhir. Rumusan masalah yang baik memiliki struktur sebagai berikut:
+Saat ini, Gedung IIP belum memiliki sistem kontrol akses yang bekerja secara otomatis dan terintegrasi dalam Sistem Manajemen Bangunan Gedung. Oleh sebab itu, diperlukan pengembangan sistem kontrol akses yang dapat menjadi solusi sebagai kontrol akses gedung yang tetap mempertimbangkan aspek keselamatan.
+
+Masalah yang terjadi dapat dirumuskan sebagai berikut : 
 \begin{enumerate}
-\item	Pokok persoalan dari kondisi atau situasi yang ada saat ini. Dengan kata lain, jelaskan kelemahan atau kekurangan dari kondisi, situasi, atau solusi yang dijelaskan pada latar belakang. Ini merupakan pokok rumusan masalah.
-\item	Elaborasi lebih lanjut urgensi penyelesaian masalah tersebut (mengapa penting untuk diselesaikan dan akibat yang dapat terjadi jika tidak diselesaikan).
-\item	Usulan singkat terkait dengan solusi yang ditawarkan untuk menyelesaikan persoalan.
-Penting untuk diperhatikan bahwa persoalan yang dideskripsikan pada subbab ini akan dipertanggungjawabkan di bab Evaluasi (apakah terselesaikan atau tidak).
+\item	Bagaimana merancang sistem kontrol akses yang dapat terintegrasi dengan \textit{Building Management System} yang dimiliki gedung?
+\item	Bagaimana merancang sistem kontrol akses yang tetap mempertimbangkan aspek keselamatan pada gedung dalam keaadaan darurat?
 \end{enumerate}
+Untuk dapat memenuhi persyaratan gedung cerdas serta meningkatkan keamanan dan keselamatan, gedung IIP membutuhkan sistem gerbang otomatis sebagai kontrol akses yang mampu mengatur dan mengetahui setiap pengunjung gedung, serta memiliki aspek keselamatan yang mumpuni dalam keadaan darurat. Sistem juga harus terintegrasi dengan \textit{Building Management System} yang dimiliki gedung sebagaimana diatur dalam Peraturan Menteri PUPR.     
 
 % --- Tujuan ---
 \section{Tujuan}
-Tuliskan tujuan utama dan/atau tujuan detail yang akan dicapai dalam pelaksanaan tugas akhir. Fokuskan pada hasil akhir yang ingin diperoleh setelah tugas akhir diselesaikan, terkait dengan penyelesaian persoalan pada rumusan masalah. Penting untuk diperhatikan bahwa tujuan yang dideskripsikan pada subbab ini akan dipertanggungjawabkan di akhir pelaksanaan tugas akhir apakah tercapai atau tidak. Tuliskan kriteria keberhasilan tugas akhir ini.
+Tujuan dari pelaksanaan tugas akhir ini adalah untuk merancang dan mengembangkan sebuah sistem kontrol akses berupa gerbang otomatis yang mampu terintegrasi dengan \textit{Building Management System} yang dimiliki gedung. Sistem ini juga diharapkan dapat dirancang sehingga dapat membantu sistem keselamatan yang ada pada gedung ketika terjadi keadaan darurat.
+Kriteria keberhasilan tugas akhir ini meliputi : 
+\begin{enumerate}
+\item	Sistem mampu terintegrasi dengan \textit{Building Management System} yang dimiliki gedung dengan memberikan informasi tentang orang-orang yang telah memasuki gedung melalui gerbang.
+\item   Sistem dapat memenuhi kebutuhan gedung dengan tetap memperhatikan aspek keselamatan gedung saat terjadi keadaan darurat dengan menetralisir hambatan yang mungkin terjadi pada gerbang.
+\end{enumerate}   
 
 % --- Batasan Masalah ---
 \section{Batasan Masalah}
-Tuliskan batasan-batasan yang diambil dalam pelaksanaan tugas akhir. Batasan ini dapat dihindari (bersifat opsional, tidak perlu ada) jika topik atau judul tugas akhir dibuat cukup spesifik.
-
+Untuk memastikan pengembangan sistem terarah dan sejalan dengan kebutuhan, dirumuskan batasan masalah sebagai pedoman dalam pelaksanaan tugas akhir ini. batasan masalah tersebut meliputi:
+\begin{enumerate}
+    \item Pengguna sistem yang dilibatkan adalah pihak pengelola gedung IIP beserta salah satu perusahaan yang menggunakan gedung IIP.
+    \item Sistem yang dikembangkan hanya mencakup satu unit gerbang sesuai ketersediaan sumber daya, namun dirancang dan dikembangkan sebagai representasi dari keseluruhan sistem.
+    \item Sistem akan dikembangkan menggunakan basis data independen yang tidak terintegrasi langsung dengan data yang dimiliki gedung. 
+    \item Pengujian sistem dilakukan dalam skala kecil pada lingkungan atau area terbatas di Gedung IIP.
+\end{enumerate}
 % --- Metodologi Pengerjaan TA ---
 \section{Metodologi}
-Tuliskan semua tahapan yang akan dilalui selama pelaksanaan tugas akhir. Tahapan ini spesifik untuk menyelesaikan persoalan tugas akhir. Khusus untuk penyusunan proposal ini, jelaskan secara detail:
+Metodologi yang digunakan pada pengerjaan tugas akhir ini didasarkan pada metodologi \textit{design thinking}. \textit{Design thinking} adalah proses iteratif yang berorientasi pada manusia (\textit{human-centered approach}) dan kolaborasi antara pengembang sistem dan penggunanya. Metodologi ini menghadirkan solusi inovatif berdasarkan bagaimana pengguna berfikir, bertindak, dan merasakan sesuatu. 
+\textit{Design thinking} memiliki lima tahapan utama, yaitu \textit{Empathize}, \textit{Define}, \textit{Ideate}, \textit{Prototype}, dan \textit{Test}.
 \begin{enumerate}
-\item	Tahapan investigasi pengumpulan fakta di latar belakang untuk merumuskan masalah.
-\item	Langkah-langkah pencarian, pengelompokan, dan penapisan literatur atau sumber informasi untuk mengumpulkan informasi yang relevan tentang topik yang diangkat, termasuk teori (konsep atau teori apa saja yang perlu dicari), hal-hal yang telah dicapai oleh orang lain (cara mencari dan kata kuncinya), dan berbagai informasi pendukung, untuk mencari solusi terhadap masalah yang dibahas. Gunakan metodologi yang tepat dalam menggali informasi dan dokumentasikan prosesnya (termasuk rekaman wawancara atau survei) di dalam Lampiran, termasuk tautan ke video atau foto. Hasil penggalian informasi ini akan dijelaskan secara sistematis di Bab II Studi Literatur.
+\item \textit{Empathize} \newline
+Tahap ini bertujuan untuk memahami pengguna, baik permasalahan yang dialami, pemahaman dan pengalaman yang mereka miliki di dalam konteks desain sistem. Dalam melakukan \textit{empathize}, pengembang dapat mengumpulkan data secara aktif dengan melakukan \textit{observation} (\textit{observe}), wawancara, survei, dan percakapan langsung (\textit{engage}), ataupun kombinasi antara \textit{observe} dan \textit{engage}. 
+\item \textit{Define} \newline
+Tahap ini menggunakan hasil yang didapatkan pada tahap \textit{empathize} untuk menemukan dan merumuskan masalah pengguna. Data yang dikumpulkan dapat diolah menjadi pemahaman atau \textit{insight} dan digunakan untuk membentuk \textit{problem statement} atau \textit{point-of-view}. \textit{Problem statement} berperan menjadi petunjuk dalam membuat sistem yang menyelesaikan masalah pengguna. Rumusan masalah yang baik harus spesifik, terukur, dan mampu memicu inspirasi dan kreativitas dalam pencarian solusi.
+\item \textit{Ideate} \newline
+Tahap ini berfokus pada eksplorasi ide dan solusi yang dapat digunakan sebagai solusi dalam menyelesaikan masalah yang dirumuskan. Pengembang dapat melakukan beragam cara seperti \textit{brainstorming}, \textit{mindmapping}, \textit{sketching}, hingga bahkan \textit{prototyping} untuk mendapatkan solusi-solusi potensial dalam menyelesaikan masalah pengguna.
+\item \textit{Prototype} \newline
+Tahap ini merupakan proses mewujudkan ide menjadi bentuk nyata yang dapat digunakan untuk mendapatkan jawaban tentang apakah ide yang telah dipilih dapat menyelesaikan permasalahan yang dialami pengguna. \textit{Prototype} yang dihasilkan dapat berupa model fisik, simulasi, sketsa, ataupun wujud lain yang dapat merepresentasikan ide yang dipilih. Tujuan utama dari tahapan ini bukanlah membuat produk akhir, melainkan sebagai langkah dalam mencoba berbagai macam ide dan kemungkinan untuk mendapatkan data dan pemahaman lebih lanjut mengenai permasalahan dan solusi. 
+\item \textit{Test} \newline
+Tahapan ini bertujuan untuk mendapatkan umpan balik menggunakan \textit{prototype} yang telah dihasilkan untuk mendapatkan informasi dan data baru dari pengguna sistem yang akan dibuat. Tahap \textit{test} berperan dalam menyempurnakan \textit{prototype} dan solusi, mengenali pengguna lebih lanjut, hingga menyempurnakan \textit{point-of-view} atau \textit{problem statement}.
 \end{enumerate}
