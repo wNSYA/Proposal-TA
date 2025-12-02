@@ -38,12 +38,58 @@ Dari kebutuhan yang dimiliki oleh kedua kelompok pengguna ini, dapat dirumuskan 
 Berdasarkan perumusan masalah, berikut merupakan analisis kebutuhan fungsional dari sistem yang akan dikembangkan.
 \input{table/fungsionalReq.tex}
 \subsection{Kebutuhan Nonfungsional}
+Berdasarkan perumusan masalah, berikut merupakan analisis kebutuhan nonfungsional dari sistem yang akan dikembangkan.
 \input{table/nonfungsionalreq.tex}
 
 \section{Analisis Pemilihan Solusi (\textit{Ideate})}
 Setelah merumuskan kebutuhan sistem, langkah selanjutnya adalah melakukan analisis dan pencarian terkait berbagai alternatif solusi yang dapat memenuhi kebutuhan sistem. Kemudian setiap alternatif solusi akan dibandingkan dengan analisis \textit{trade-off} untuk mendapatkan solusi terbaik.
 \subsection{Alternatif Solusi}
 Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungsional yang ada pada sistem.
-
+\begin{enumerate}
+    \item KF-01 Kontrol Akses
+    \begin{itemize}
+        \item \textit{Swing Barrier}, yaitu tipe gerbang yang membuka dan menutup ke arah dalam atau luar.
+        \item \textit{Flap Barrier}, yaitu tipe gerbang yang membuka dan menutup dengan menggeser penghalang ke arah samping.
+        \item \textit{Tripod Gate}, yaitu tipe gerbang dengan 3 batang besi yang dapat berputar searah saat kunci terbuka.
+    \end{itemize}
+    \item KF-02 Autentikasi
+    \begin{itemize}
+        \item \textit{Face recognition}, yaitu teknologi autentikasi dengan mendeteksi dan mengenali wajah pengguna.
+        \item RFID (\textit{Radio Frequency Identifier}), yaitu teknologi autentikasi yang menggunakan kartu yang memancarkan radio frekuensi tertentu dan dapat dibaca sistem untuk mengenali pengguna.
+        \item Sidik jari, yaitu teknologi autentikasi yang memanfaatkan keunikan pola jari manusia untuk mengenali pengguna.
+        \item RFID + Pengenalan Wajah, gabungan dari teknologi Pengenalan wajah dan RFID untuk saling melengkapi kelebihan dan kelemahan masing-masing 
+    \end{itemize}
+    \item KF-03 Manajemen Data
+    \begin{itemize}
+        \item Aplikasi Web, menggunakan website yang dapat diakses melalui browser untuk pendaftaran.
+        \item Aplikasi Desktop, menggunakan aplikasi berbasis desktop yang dapat diakses melalui perangkat pc resepsionis untuk melakukan pendaftaran.
+        \item Aplikasi Mobile, menggunakan aplikasi berbasis mobile yang dapat diakses melalui perangkat ponsel pengguna untuk melakukan pendaftaran.
+    \end{itemize}
+    \item KF-04 Integrasi Sistem
+    \begin{itemize}
+        \item Integrasi berbasis API
+        \item Integrasi berbasis \textit{Message Queue}
+        \item Integrasi berbasis \textit{Webhook}
+    \end{itemize}
+    \item KF-05 Keselamatan/safety
+    \begin{itemize}
+        \item Gerbang \textit{fail-safe}, yaitu gerbang yang memiliki kondisi terbuka saat tidak mendapatkan aliran listrik.
+        \item Tombol Darurat, yaitu solusi berupa menambahkan tombol yang dapat membuka gerbang tanpa harus melakukan autentikasi
+        \item Gerbang \textit{fail-safe} + Tombol Darurat, yaitu penggabungan Solusi yang memungkinkan gerbang dapat terbuka jika tidak mendapatkan aliran listrik atau ketika tombol ditekan.
+    \end{itemize}
+\end{enumerate}
 \subsection{Analisis Penentuan Solusi}
-\lipsum[3]
+Untuk menentukan pemilihan solusi terbaik, dilakukan analisis kualitatif dan kuantitatif untuk setiap alternatif solusi. Berikut merupakan analisis kualitatif dari alternatif solusi sistem kontrol akses.
+\input{table/tab_alternatif_solusi.tex}
+Setelah itu, kami melakukan analisis kuantitatif dengan metode \textit{Weighted Scoring Model} (WSM) untuk membandingkan setiap alternatif solusi. berikut merupakah analisis WSM dari setiap alternatif solusi setiap kebutuhan.
+
+Berdasarkan analisis yang telah dilakukan, solusi terbaik yang dapat kami usulkan adalah:
+\begin{enumerate}
+    \item Kontrol Akses: \textit{Swing Barrier}
+    \item Autentikasi: Kombinasi Pengenalan Wajah + RFID
+    \item Manajemen Data: Aplikasi Web
+    \item Integrasi Sistem: Integrasi API
+    \item Keselamatan/\textit{safety}: Kombinasi \textit{Fail-safe gate} + Tombol Darurat.
+\end{enumerate}
+
+

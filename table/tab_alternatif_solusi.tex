@@ -1,0 +1,25 @@
+\begin{longtable}{p{0.15\textwidth} p{0.25\textwidth} p{0.55\textwidth}}
+\caption{Analisis Alternatif Solusi Berdasarkan Kebutuhan Fungsional}
+\label{tab:alternatif_solusi} \\
+\toprule
+\textbf{Kebutuhan} & \textbf{Opsi Solusi} & \textbf{Analisis Pemilihan} \\
+\midrule
+\endfirsthead
+\caption{Analisis Alternatif Solusi (lanjutan)} \\
+\toprule
+\textbf{Kebutuhan} & \textbf{Opsi Solusi} & \textbf{Analisis Pemilihan} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+
+\textbf{KF-1 (Gerbang)} & 1. Tripod Turnstile \newline 2. Flap Barrier \newline 3. \textbf{Swing Barrier} & \textbf{Swing Barrier} dipilih karena memberikan aksesibilitas yang lebih baik (lebar jalur fleksibel untuk barang/kursi roda) dan estetika yang sesuai dengan gedung modern. \\
+\midrule
+\textbf{KF-2 (Metode)} & 1. Wajah saja \newline 2. RFID saja \newline 3. Sidik Jari \newline 4. \textbf{Wajah + RFID} & \textbf{Wajah + RFID} dipilih sebagai solusi minimal untuk menjamin fleksibilitas (karyawan menggunakan wajah, tamu menggunakan kartu sementara) dan keandalan sistem. \\
+\midrule
+\textbf{KF-3 (Platform)} & 1. Aplikasi Desktop \newline 2. Aplikasi Mobile \newline 3. \textbf{Aplikasi Web} & \textbf{Aplikasi Web} dipilih karena kemudahan akses (tidak perlu instalasi di sisi pengguna) dan sentralisasi manajemen data yang lebih efisien. \\
+\midrule
+\textbf{KF-4 (Integrasi)} & 1. \textit{Message Queue} \newline 2. \textbf{Integrasi API} \newline 3. Webhook& \textbf{Integrasi Alarm Api} dipilih agar sistem secara otomatis merespons kondisi kebakaran tanpa menunggu intervensi manusia ("nembak api"). \\
+\midrule
+\textbf{KF-5 (Safety)} & 1. \textit{Fail-Safe} (Otomatis) \newline 2. Darurat (Manual) \newline 3. \textbf{Kombinasi} & \textbf{Kombinasi (Fail-Safe + Darurat)} dipilih. Mekanisme \textit{fail-safe} membuka kunci saat listrik putus, didukung tombol darurat manual untuk redundansi keamanan. \\
+\end{longtable}

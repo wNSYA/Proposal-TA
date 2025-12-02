@@ -5,32 +5,8 @@
 \label{chap:desain-konsep-solusi}
 Fokus utama pada desain konsep solusi adalah menjelaskan model konseptual dan penjelasan desain yang dipilih pada bab sebelumnya mengenai pengenalan wajah untuk kontrol akses di lobi ITB Innovation Park.
 \section{Diagram Konseptual}
-Penambahan sistem pengenalan wajah ini berpengaruh bagaimana alur karyawan atau pengunjung dalam memasuki gedung dan mengakses lift dari lobi. Gambar IV.1 adalah gambaran alur sistem kontrol akses sebelum ditambahkannya sistem pengenalan wajah dan gambar IV.2 adalah gambaran alur sistem kontrol akses setelah ditambahkannya sistem pengenalan wajah.
-\begin{figure}[H] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
-	\centering
-  \captionsetup{justification=centering}
-    	\includegraphics[width=0.7\textwidth]{image/Before.png}
-	\caption{Alur memasuki gedung ITB Innovation Park-sebelum}
-	\label{gambar:sebelum}
-\end{figure}
-Pada gambar IV.1 terlihat bahwa pengguna yang telah diberikan akses oleh petugas keamanan dapat langsung mengakses lift melalui lobi. Petugas keamanan tidak dapat mengenali maupun menyimpan data setiap orang yang memasuki gedung IIP sehingga belum dapat memenuhi persyaratan sebagai gedung cerdas yang memiliki sistem kontrol akses yang otomatis dan terintegrasi.
-\begin{figure}[H] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
-	\centering
-  \captionsetup{justification=centering}
-    	\includegraphics[width=0.7\textwidth]{image/After.png}
-	\caption{Alur memasuki gedung ITB Innovation Park-sesudah}
-	\label{gambar:sesudah}
-\end{figure}
-Pada gambar IV.2 terlihat bahwa pengguna yang telah diberikan akses oleh petugas keamanan perlu melalui serangkaian verifikasi data untuk dapat mengakses lantai lain melalui lobi. hal ini memungkinkan data pengunjung maupun karyawan yang memasuki gedung dapat diperoleh secara otomatis. data yang tersimpan juga dapat terintegrasi dengan sistem lain seperti sistem pemantauan. Hal ini dapat membuat visi gedung IIP sebagai bangunan cerdas dapat terpenuhi.
+Penerapan desain solusi yang dipilih akan mempengaruhi alur kontrol akses yang telah ada sebelumnya. Gambar X adalah diagram alur kontrol akses sebelum penerapan sistem dan gambar y merupakan alur kontrol akses sesudah penerapan sistem pada Gedung IIP.
 
+Pada kedua gambar, dapat diliihat dengan jelas peruubahan alur yang terjadi, dimana setelah melewati petugas keamanan luar gedung, pengguna harus melewati sistem gerbang terlebih dahulu sebelum akhirnya dapat mengakses lift pada lobi gedung.
 
 \section{Penjelasan Desain}
-Desain dari sistem kontrol akses dengan pengenalan wajah terdiri atas beberapa komponen yang saling terhubung. Gambar IV.3 adalah desain dari sistem kontrol akses dengan pengenalan wajah. 
-\begin{figure}[H] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
-	\centering
-  \captionsetup{justification=centering}
-    	\includegraphics[width=0.7\textwidth]{image/SystemDesign.png}
-	\caption{Desain Sistem Kontrol Akses dengan Pengenalan Wajah}
-	\label{gambar:sistemdesain}
-\end{figure}
-Proses pengenalan wajah diawali dengan kamera dan sensor yang berperan sebagai \textit{input} untuk program pengenal wajah, program kemudian akan melakukan pengecekan pada \textit{database} untuk melihat apakah terdapat wajah yang diterima dari \textit{input} tersebut. Jika tidak dikenali, program akan mengeluarkan \textit{output} berupa \textit{log} yang menandakan bahwa ada seseorang yang tidak dikenali memasuki gedung dan mencoba menggunakan lift. Apabila wajah dikenali, \textit{output} yang diberikan adalah \textit{log} yang berisi identitas pengguna tersebut. Setelah itu, gerbang akan terbuka. Gerbang juga terhubung dengan tombol yang akan dapat membuka gerbang secara langsung dalam keadaan darurat. Kemudian, database yang berisi log dapat digunakan dan ditampilkan dalam suatu \textit{dashboard/analytics} yang dapat digunakan pihak gedung untuk mengetahui keadaan pengunjung secara langsung. Sistem ini sudah dapat memenuhi kebutuhan dari pengguna akan kontrol akses yang bersifat otomatis dapat terintegrasi dengan sistem lain dalam gedung IIP sebagai bangunan cerdas.
