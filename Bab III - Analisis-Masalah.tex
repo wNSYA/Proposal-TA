@@ -6,19 +6,44 @@
 % ============================================================================================
 \chapter{ANALISIS MASALAH}
 \label{chap:analisis-masalah}
-\section{Analisis Kondisi Saat Ini}
-Menurut \textcite{laudon2020}, gambarkan terlebih dahulu model konseptual sistem yang ada saat ini. Model konseptual ini berisi berbagai komponen atau subsitem dan interaksi antarsubsistem tersebut. Setelah itu, berikan penjelasan tentang masalah yang ada pada sistem tersebut. Paragraf berikut berisi contoh penjabaran masalah sistem informasi fasilitas kesehatan untuk pasien \autocite{pressman2019}. 
-\section{Analisis Kebutuhan}
-\lipsum[4]
-\subsection{Identifikasi Masalah Pengguna}
-\lipsum[5]
-\subsection{Kebutuhan Fungsional}
-\lipsum[6]
-\subsection{Kebutuhan Nonfungsional}
-\lipsum[7]
+\section{Analisis Kondisi Saat Ini (\textit{Emphatize})}
+Berdasarkan hasil observasi lapangan dan wawancara terhadap pengurus lapangan di Gedung ITB Innovation Park, alur masuk pengunjung maupun tamu pada saat ini masih dilakukan secara manual dan belum teritegrasi. Alur kontrol akses yang ada saat ini adalah sebagai berikut:
+\begin{enumerate}
+    \item   Setiap orang yang hendak memasuki gedung akan ditanyakan oleh petugas pertanyaan berupa asal lembaga atau perusahaan beserta tujuan memasuki gedung. Petugas akan menilai dan memutuskan sendiri apakah pengunjung diperbolehkan masuk.
+    \item   Setelah diperbolehkan masuk, jika menggunakan kendaraan, pengunjung akan diarahkan menuju area parkir. Di tempat parkir, petugas akan mencatat nama beserta plat kendaraan dari pengunjung. jika tidak, pengunjung akan diarahkan langsung ke lobi.
+    \item   Setelah diperbolehkan masuk, pengunjung akan diarahkan langsung ke lobi untuk bertemu resepsionis atau petugas yang sedang berjaga di lobi.
+    \item   Resepsionis ataupun petugas keamanan yang berjaga kemudian akan menanyakan tujuan pengunjung, dan terkadang akan memandu pengunjung dalam menggunakan lift ke area tersebut.
+\end{enumerate}
+Berdasarkan alur, terlihat bahwa kondisi saat ini memiliki kelemahan yang penting, terutama pada proses dokumentasi informasi dari pengunjung gedung yang hanya dilakukan di area parkir. Selain itu, sistem saat ini memiliki kerentanan pada keputusan memberikan akses yang sepenuhnya dilakukan oleh petugas keamanan serta parameter pemberian akses yang subjektif. Selain itu, sistem kontrol akses saat ini belum terintegrasi dengan Sistem Manajemen Bangunan Gedung. Mengingat fungsi gedung sebagai pusat inovasi yang menyimpan aset bernilai tinggi, sistem saat ini tidak lagi layak untuk diterapkan dan membutuhkan perubahan baik infrastruktur maupun regulasinya. 
 
-\section{Analisis Pemilihan Solusi}
+Selain alur kontrol akses yang masih manual, kondisi lobi pada Gedung IIP saat ini belum memiliki infrastruktur kontrol akses yang memadai, dengan hanya resepsionis dan petugas penjaga sebagai bagian dari kontrol akses manual. Gambar \ref{gambar:lobi-iip} menunjukkan kondisi lapangan dari lobi Gedung IIP diambil dari pintu depan Lobi.
+\begin{figure}[H] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
+	\centering
+  \captionsetup{justification=centering}
+    	\includegraphics[width=0.7\textwidth]{image/lobi.jpg}
+	\caption{Kondisi lapangan dari lobi Gedung IIP}
+	\label{gambar:lobi-iip}
+\end{figure}
+Berdasarkan foto tersebut, terlihat bahwa belum ada infrastruktur yang dapat memungkinkan sistem untuk melakukan kontrol akses secara otomatis. Saat ini, jika tidak ada penjaga ataupun resepsionis, siapa saja dapat mengakses lift pada lobi yang menuju area lain pada gedung.
+\section{Perumusan Masalah (\textit{Define})}
+Pada tahap ini, informasi yang telah dikumpulkan pada tahap \textit{emphatize} akan dianalisis untuk menemukan dan merumuskan masalah pengguna. Berikut merupakan tahapan \textit{define} yang terdiri atas analisis kebutuhan pengguna, kebutuhan fungsional dan kebutuhan nonfungsional dari sistem yang akan dikembangkan.
+\subsection{Identifikasi Masalah Pengguna}
+Berdasarkan analisis kondisi saat ini, terdapat dua kelompok pengguna utama dari sistem dengan masalah sebagai berikut:
+\begin{enumerate}
+    \item   Penghuni gedung, yaitu para karyawan dari perusahaan yang menyewa tempat pada gedung. Kelompok ini membutuhkan sistem yang dapat mengontrol akses masuk ke dalam gedung dengan tingkat keamanan yang tinggi, sehingga orang-orang yang memasuki kawasan mereka hanyalah orang yang telah dikenali secara pasti oleh sistem.
+    \item   Pengelola gedung, yaitu tim keamanan dan pengurus gedung yang merupakan karyawan dari Departemen Kawasan Sains dan Teknologi. Kelompok ini membutuhkan sistem kontrol akses yang otomatis dan terintegrasi dengan Sistem Manajemen Bangunan Gedung untuk dapat memenuhi regulasi yang ditetapkan pada Bangunan Gedung Cerdas. Kelompok pengguna ini juga membutuhkan sistem yang tetap sejalan dengan prosedur keselamatan gedung saat terjadi keadaan darurat atau bencana.
+\end{enumerate}
+Dari kebutuhan yang dimiliki oleh kedua kelompok pengguna ini, dapat dirumuskan sebuah pernyataan kebutuhan atau \textit{problem statement} yaitu "Dibutuhkannya sistem Kontrol akses otomatis dengan keamanan tinggi, dapat terintegrasi dengan Sistem Manajemen Bangunan Gedung, serta tetap sejalan dengan prosedur keselamatan gedung saat terjadi keadaan darurat".
+\subsection{Kebutuhan Fungsional}
+Berdasarkan perumusan masalah, berikut merupakan analisis kebutuhan fungsional dari sistem yang akan dikembangkan.
+\input{table/fungsionalReq.tex}
+\subsection{Kebutuhan Nonfungsional}
+\input{table/nonfungsionalreq.tex}
+
+\section{Analisis Pemilihan Solusi (\textit{Ideate})}
+Setelah merumuskan kebutuhan sistem, langkah selanjutnya adalah melakukan analisis dan pencarian terkait berbagai alternatif solusi yang dapat memenuhi kebutuhan sistem. Kemudian setiap alternatif solusi akan dibandingkan dengan analisis \textit{trade-off} untuk mendapatkan solusi terbaik.
 \subsection{Alternatif Solusi}
-\lipsum[8]
+Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungsional yang ada pada sistem.
+
 \subsection{Analisis Penentuan Solusi}
-\lipsum[9]
+\lipsum[3]

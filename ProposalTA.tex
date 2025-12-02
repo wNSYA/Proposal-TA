@@ -31,23 +31,23 @@
 % - Jika meenggunakan Visual Studio Code sebagai editor, pastikan mengatur "latex-workshop.latex.tools" dan
 %   "latex-workshop.latex.recipes" untuk mendukung XeLaTeX dan Biber dengan cara menambahkan konfigurasi berikut:
 %   "latex-workshop.latex.tools": [ 
-%       {
-%           "name": "xelatex",
-%           "command": "xelatex",
-%           "args": [
-%               "-synctex=1",
-%               "-interaction=nonstopmode",
-%               "-file-line-error",
-%               "%DOC%"
-%           ]
-%       },
-%       {
-%           "name": "biber",
-%           "command": "biber",
-%           "args": [
-%               "%DOCFILE%"
-%           ]
-%       }
+      % {
+      %     "name": "xelatex",
+      %     "command": "xelatex",
+      %     "args": [
+      %         "-synctex=1",
+      %         "-interaction=nonstopmode",
+      %         "-file-line-error",
+      %         "%DOC%"
+      %     ]
+      % },
+      % {
+      %     "name": "biber",
+      %     "command": "biber",
+      %     "args": [
+      %         "%DOCFILE%"
+      %     ]
+      % }
 %   ],
 %   "latex-workshop.latex.recipes": [
 %       {
@@ -97,6 +97,8 @@
 \usepackage{longtable}
 \usepackage{booktabs}
 \usepackage[bahasai]{datetime2}
+
+\usepackage{tabularx}
 
 
 \setcounter{tocdepth}{4} % kedalaman daftar isi sampai subsubbab
@@ -209,7 +211,7 @@
     
     \vspace*{2cm}
     
-    {\Large\bfseries PERANCANGAN SISTEM KONTROL AKSES BERBASIS PENGENALAN WAJAH UNTUK KONDISI DARURAT DAN BENCANA PADA BANGUNAN CERDAS}\\
+    {\Large\bfseries PENGEMBANGAN SISTEM KONTROL AKSES BERBASIS PENGENALAN WAJAH UNTUK KONDISI DARURAT DAN BENCANA PADA BANGUNAN CERDAS}\\
      \vspace{4cm}
 
     {\Large \textbf{Proposal Tugas Akhir}}\\
@@ -256,7 +258,7 @@
   \textbf{\large LEMBAR PENGESAHAN}\\[1cm]
   \vspace*{1.5cm}
     
-  {\large\bfseries PERANCANGAN SISTEM KONTROL AKSES BERBASIS PENGENALAN WAJAH UNTUK KONDISI DARURAT DAN BENCANA PADA BANGUNAN CERDAS}\\
+  {\large\bfseries PENGEMBANGAN SISTEM KONTROL AKSES BERBASIS PENGENALAN WAJAH UNTUK KONDISI DARURAT DAN BENCANA PADA BANGUNAN CERDAS}\\
      \vspace{2cm}
 
   {\Large \textbf{Proposal Tugas Akhir}}\\
