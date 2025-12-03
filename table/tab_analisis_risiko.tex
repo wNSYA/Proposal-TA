@@ -1,0 +1,42 @@
+\begin{table}[H]
+\centering
+\caption{Analisis Risiko dan Mitigasi Proyek}
+\label{tab:analisis-risiko-detail}
+\begin{tabularx}{\textwidth}{ l >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X }
+\toprule
+\textbf{No.} & \textbf{Risiko} & \textbf{Dampak} & \textbf{Tindakan Mitigasi} \\
+\midrule
+
+1. &
+Risiko Teknis: \newline
+Akurasi pengenalan wajah rendah di bawah 90\%. &
+Gagal memenuhi KNF-2. Pengguna terdaftar ditolak. &
+1. Melakukan \textit{data augmentation}. \newline
+2. Menggunakan lampu tambahan (\textit{fill light}). \\
+\midrule
+
+2. &
+Risiko Teknis: \newline
+Waktu respon lambat lebih dari 3 detik. &
+Gagal memenuhi KNF-1. Menyebabkan antrian. &
+1. Optimasi kode. \newline
+2. Menggunakan algoritma pencarian vektor cepat (Annoy). \\
+\midrule
+
+3. &
+Risiko Operasional: \newline
+Kegagalan fungsi akibat \textit{backlight}. &
+Akurasi menurun drastis pada jam tertentu. &
+1. Menggunakan kamera HDR. \newline
+2. Mengatur posisi kamera. \\
+\midrule
+
+4. &
+Risiko Keamanan: \newline
+\textit{Spoofing attack} menggunakan foto HP. &
+Akses ilegal. &
+1. Implementasi deteksi kedipan mata. \newline
+2. Pengawasan oleh sekuriti (mitigasi prosedural). \\
+\bottomrule
+\end{tabularx}
+\end{table}

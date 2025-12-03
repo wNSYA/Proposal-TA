@@ -10,21 +10,21 @@
 Berdasarkan hasil observasi lapangan dan wawancara terhadap pengurus lapangan di Gedung ITB Innovation Park, alur masuk pengunjung maupun tamu pada saat ini masih dilakukan secara manual dan belum teritegrasi. Alur kontrol akses yang ada saat ini adalah sebagai berikut:
 \begin{enumerate}
     \item   Setiap orang yang hendak memasuki gedung akan ditanyakan oleh petugas pertanyaan berupa asal lembaga atau perusahaan beserta tujuan memasuki gedung. Petugas akan menilai dan memutuskan sendiri apakah pengunjung diperbolehkan masuk.
-    \item   Setelah diperbolehkan masuk, jika menggunakan kendaraan, pengunjung akan diarahkan menuju area parkir. Di tempat parkir, petugas akan mencatat nama beserta plat kendaraan dari pengunjung. jika tidak, pengunjung akan diarahkan langsung ke lobi.
+    % \item   Setelah diperbolehkan masuk, jika menggunakan kendaraan, pengunjung akan diarahkan menuju area parkir. Di tempat parkir, petugas akan mencatat nama beserta plat kendaraan dari pengunjung. jika tidak, pengunjung akan diarahkan langsung ke lobi.
     \item   Setelah diperbolehkan masuk, pengunjung akan diarahkan langsung ke lobi untuk bertemu resepsionis atau petugas yang sedang berjaga di lobi.
     \item   Resepsionis ataupun petugas keamanan yang berjaga kemudian akan menanyakan tujuan pengunjung, dan terkadang akan memandu pengunjung dalam menggunakan lift ke area tersebut.
 \end{enumerate}
 Berdasarkan alur, terlihat bahwa kondisi saat ini memiliki kelemahan yang penting, terutama pada proses dokumentasi informasi dari pengunjung gedung yang hanya dilakukan di area parkir. Selain itu, sistem saat ini memiliki kerentanan pada keputusan memberikan akses yang sepenuhnya dilakukan oleh petugas keamanan serta parameter pemberian akses yang subjektif. Selain itu, sistem kontrol akses saat ini belum terintegrasi dengan Sistem Manajemen Bangunan Gedung. Mengingat fungsi gedung sebagai pusat inovasi yang menyimpan aset bernilai tinggi, sistem saat ini tidak lagi layak untuk diterapkan dan membutuhkan perubahan baik infrastruktur maupun regulasinya. 
 
-Selain alur kontrol akses yang masih manual, kondisi lobi pada Gedung IIP saat ini belum memiliki infrastruktur kontrol akses yang memadai, dengan hanya resepsionis dan petugas penjaga sebagai bagian dari kontrol akses manual. Gambar \ref{gambar:lobi-iip} menunjukkan kondisi lapangan dari lobi Gedung IIP diambil dari pintu depan Lobi.
+Selain alur kontrol akses yang masih manual, kondisi lobi pada Gedung IIP saat ini belum memiliki infrastruktur kontrol akses yang memadai, dengan hanya resepsionis dan petugas penjaga sebagai bagian dari kontrol akses manual. Gambar \ref{gambar:lobi-iip} menunjukkan gambaran kondisi saat ini dari lobi Gedung IIP.
 \begin{figure}[H] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
 	\centering
   \captionsetup{justification=centering}
-    	\includegraphics[width=0.7\textwidth]{image/lobi.jpg}
+    	\includegraphics[width=0.7\textwidth]{image/denah-sebelum.png}
 	\caption{Kondisi lapangan dari lobi Gedung IIP}
 	\label{gambar:lobi-iip}
 \end{figure}
-Berdasarkan foto tersebut, terlihat bahwa belum ada infrastruktur yang dapat memungkinkan sistem untuk melakukan kontrol akses secara otomatis. Saat ini, jika tidak ada penjaga ataupun resepsionis, siapa saja dapat mengakses lift pada lobi yang menuju area lain pada gedung.
+Berdasarkan gambar tersebut, terlihat bahwa belum ada infrastruktur yang dapat memungkinkan sistem untuk melakukan kontrol akses secara otomatis. Saat ini, jika tidak ada penjaga ataupun resepsionis, siapa saja dapat mengakses lift pada lobi yang menuju area lain pada gedung.
 \section{Perumusan Masalah (\textit{Define})}
 Pada tahap ini, informasi yang telah dikumpulkan pada tahap \textit{emphatize} akan dianalisis untuk menemukan dan merumuskan masalah pengguna. Berikut merupakan tahapan \textit{define} yang terdiri atas analisis kebutuhan pengguna, kebutuhan fungsional dan kebutuhan nonfungsional dari sistem yang akan dikembangkan.
 \subsection{Identifikasi Masalah Pengguna}
@@ -42,46 +42,59 @@ Berdasarkan perumusan masalah, berikut merupakan analisis kebutuhan nonfungsiona
 \input{table/nonfungsionalreq.tex}
 
 \section{Analisis Pemilihan Solusi (\textit{Ideate})}
-Setelah merumuskan kebutuhan sistem, langkah selanjutnya adalah melakukan analisis dan pencarian terkait berbagai alternatif solusi yang dapat memenuhi kebutuhan sistem. Kemudian setiap alternatif solusi akan dibandingkan dengan analisis \textit{trade-off} untuk mendapatkan solusi terbaik.
+Setelah merumuskan kebutuhan sistem, langkah selanjutnya adalah melakukan analisis dan pencarian terkait berbagai alternatif solusi yang dapat memenuhi kebutuhan sistem. Kemudian setiap alternatif solusi akan dibandingkan dengan analisis kualitatif dan kuantitatif untuk mendapatkan solusi terbaik.
 \subsection{Alternatif Solusi}
 Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungsional yang ada pada sistem.
 \begin{enumerate}
     \item KF-01 Kontrol Akses
-    \begin{itemize}
+    \begin{enumerate}[a.]
         \item \textit{Swing Barrier}, yaitu tipe gerbang yang membuka dan menutup ke arah dalam atau luar.
         \item \textit{Flap Barrier}, yaitu tipe gerbang yang membuka dan menutup dengan menggeser penghalang ke arah samping.
         \item \textit{Tripod Gate}, yaitu tipe gerbang dengan 3 batang besi yang dapat berputar searah saat kunci terbuka.
-    \end{itemize}
-    \item KF-02 Autentikasi
-    \begin{itemize}
+    \end{enumerate}
+
+    \item KF-02 Pendeteksi Wajah
+    \begin{enumerate}[a.]
         \item \textit{Face recognition}, yaitu teknologi autentikasi dengan mendeteksi dan mengenali wajah pengguna.
-        \item RFID (\textit{Radio Frequency Identifier}), yaitu teknologi autentikasi yang menggunakan kartu yang memancarkan radio frekuensi tertentu dan dapat dibaca sistem untuk mengenali pengguna.
+        \item RFID (\textit{Radio Frequency Identifier}), yaitu teknologi autentikasi yang menggunakan kartu yang memancarkan radio frekuensi tertentu.
         \item Sidik jari, yaitu teknologi autentikasi yang memanfaatkan keunikan pola jari manusia untuk mengenali pengguna.
-        \item RFID + Pengenalan Wajah, gabungan dari teknologi Pengenalan wajah dan RFID untuk saling melengkapi kelebihan dan kelemahan masing-masing 
-    \end{itemize}
-    \item KF-03 Manajemen Data
-    \begin{itemize}
+        \item RFID + Pengenalan Wajah, gabungan dari teknologi pengenalan wajah dan RFID untuk melengkapi kelebihan dan kekurangan masing-masing.
+    \end{enumerate}
+
+    \item KF-03 Pengenalan Wajah
+    \begin{enumerate}[a.]
+        \item \textit{Face recognition}, yaitu teknologi autentikasi dengan mendeteksi dan mengenali wajah pengguna.
+        \item RFID (\textit{Radio Frequency Identifier}), yaitu teknologi autentikasi yang menggunakan kartu yang memancarkan radio frekuensi tertentu.
+        \item Sidik jari, yaitu teknologi autentikasi yang memanfaatkan keunikan pola jari manusia untuk mengenali pengguna.
+        \item RFID + Pengenalan Wajah, gabungan dari teknologi pengenalan wajah dan RFID untuk melengkapi kelebihan dan kekurangan masing-masing.
+    \end{enumerate}
+
+    \item KF-04 Manajemen Data
+    \begin{enumerate}[a.]
         \item Aplikasi Web, menggunakan website yang dapat diakses melalui browser untuk pendaftaran.
-        \item Aplikasi Desktop, menggunakan aplikasi berbasis desktop yang dapat diakses melalui perangkat pc resepsionis untuk melakukan pendaftaran.
-        \item Aplikasi Mobile, menggunakan aplikasi berbasis mobile yang dapat diakses melalui perangkat ponsel pengguna untuk melakukan pendaftaran.
-    \end{itemize}
-    \item KF-04 Integrasi Sistem
-    \begin{itemize}
+        \item Aplikasi Desktop, menggunakan aplikasi berbasis desktop untuk perangkat PC resepsionis.
+        \item Aplikasi Mobile, menggunakan aplikasi berbasis mobile untuk ponsel pengguna.
+    \end{enumerate}
+
+    \item KF-05 Integrasi Sistem
+    \begin{enumerate}[a.]
         \item Integrasi berbasis API
         \item Integrasi berbasis \textit{Message Queue}
         \item Integrasi berbasis \textit{Webhook}
-    \end{itemize}
-    \item KF-05 Keselamatan/safety
-    \begin{itemize}
+    \end{enumerate}
+
+    \item KF-06 Keselamatan/\textit{safety}
+    \begin{enumerate}[a.]
         \item Gerbang \textit{fail-safe}, yaitu gerbang yang memiliki kondisi terbuka saat tidak mendapatkan aliran listrik.
-        \item Tombol Darurat, yaitu solusi berupa menambahkan tombol yang dapat membuka gerbang tanpa harus melakukan autentikasi
-        \item Gerbang \textit{fail-safe} + Tombol Darurat, yaitu penggabungan Solusi yang memungkinkan gerbang dapat terbuka jika tidak mendapatkan aliran listrik atau ketika tombol ditekan.
-    \end{itemize}
+        \item Tombol Darurat, yaitu tombol yang dapat membuka gerbang tanpa autentikasi.
+        \item Gerbang \textit{fail-safe} + Tombol Darurat, yaitu penggabungan solusi yang memungkinkan gerbang terbuka saat listrik padam atau tombol ditekan.
+    \end{enumerate}
+
 \end{enumerate}
 \subsection{Analisis Penentuan Solusi}
 Untuk menentukan pemilihan solusi terbaik, dilakukan analisis kualitatif dan kuantitatif untuk setiap alternatif solusi. Berikut merupakan analisis kualitatif dari alternatif solusi sistem kontrol akses.
 \input{table/tab_alternatif_solusi.tex}
-Setelah itu, kami melakukan analisis kuantitatif dengan metode \textit{Weighted Scoring Model} (WSM) untuk membandingkan setiap alternatif solusi. berikut merupakah analisis WSM dari setiap alternatif solusi setiap kebutuhan.
+Setelah itu, kami melakukan analisis kuantitatif dengan metode \textit{Weighted Scoring Model} (WSM) untuk membandingkan setiap alternatif solusi. berikut merupakan analisis WSM dari setiap alternatif solusi setiap kebutuhan.
 
 Berdasarkan analisis yang telah dilakukan, solusi terbaik yang dapat kami usulkan adalah:
 \begin{enumerate}

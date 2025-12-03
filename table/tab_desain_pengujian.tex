@@ -1,0 +1,31 @@
+\begin{table}[H]
+\centering
+\caption{Desain Pengujian dan Evaluasi Sistem}
+\label{tab:desain-pengujian-detail}
+\begin{tabularx}{\textwidth}{ l >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X }
+\toprule
+\textbf{Kriteria} & \textbf{Metode Verifikasi atau Validasi} & \textbf{Parameter Keberhasilan} \\
+\midrule
+\textit{Verifikasi Fungsional} & & \\
+KF-1 s.d. KF-4 & Pengujian Fungsional (\textit{Black-box}) \newline
+Skenario: \newline
+1. Uji pengguna terdaftar. \newline
+2. Uji pengguna tidak terdaftar.
+& 1. Skenario 1: Kunci harus terbuka. \newline
+2. Skenario 2: Kunci harus tetap tertutup. \\
+\midrule
+\textit{Validasi Nonfungsional} & & \\
+KNF-3 (Waktu Respon) & Pengujian Waktu Respon \newline
+Mengukur waktu dari saat wajah terdeteksi penuh hingga sinyal dikirim ke aktuator.
+& Waktu rata-rata dari 20 kali percobaan harus kurang dari 3 detik. \\
+\midrule
+KNF-1 (Akurasi) & Pengujian Akurasi \newline
+Membuat \textit{dataset} uji 10 pengguna terdaftar dan 5 pengguna tidak terdaftar.
+& \textit{False Acceptance Rate} (FAR) < 0,1\% dan \textit{False Rejection Rate} (FRR) < 1\%. \\
+\midrule
+KNF-5 (Keandalan) & Pengujian Konsistensi \newline
+Uji berulang sebanyak 20 kali.
+& Sistem harus konsisten 100\% dalam memberikan keputusan akses. \\
+\bottomrule
+\end{tabularx}
+\end{table}
