@@ -5,10 +5,43 @@
 \label{chap:rencana-selanjutnya}
 Bab ini menjelaskan langkah implementasi sistem yang akan dilakukan kedepannya. Rencana ini dijabarkan dalam bentuk linimasa pekerjaan, yang kemudian dilanjutkan dengan rencana implementasi, desain pengujian, serta analisis risiko. 
 \section{Rencana Implementasi}
+\subsection{Linimasa Pengerjaan}
 Pengerjaan tugas akhir direncanakan berlangsung selama 14 bulan, dimulai dari September 2025 untuk tahap studi awal dan proposal hingga Desember 2026. Implementasi sistem fisik akan dimulai pada Januari 2026. Linimasa pengerjaan disajikan dalam bentuk bagan Gantt pada Tabel \ref{tab:linimasa}.
 
 \input{table/tab_linimasa}
+Rencana linimasa pengerjaan untuk implementasi dan pengembangan sistem untuk tugas akhir ini adalah sebagai berikut: 
+\begin{enumerate}
+    \item Persiapan dan Perakitan Perangkat Keras \\
+    Tahap awal berfokus pada penyiapan fisik sistem agar siap dipasang pada gerbang.
+    \begin{enumerate}[a.]
+        \item Perakitan Unit Pemrosesan: Menyiapkan unit mikrokontroler (Raspberry Pi) dan menghubungkannya dengan modul pendukung seperti kamera dan layar antarmuka.
+        \item Instalasi Modul Kontrol: Merangkai modul relay elektronik yang berfungsi sebagai jembatan penghubung antara sinyal digital dari sistem dengan kunci fisik pada gerbang.
+        \item Pemasangan Fisik (Mounting): Menempatkan seluruh komponen elektronik ke dalam casing pelindung dan memasangnya pada tiang gerbang dengan posisi sudut pandang kamera yang optimal untuk menangkap wajah pengguna.
+    \end{enumerate}
 
+    \item Pengembangan Logika Perangkat Lunak \\
+    Pada tahap ini, logika kecerdasan buatan dan kontrol sistem dibangun.
+    \begin{enumerate}[a.]
+        \item Implementasi Algoritma: Menanamkan algoritma deteksi dan pengenalan wajah ke dalam unit pemrosesan agar mampu mengidentifikasi pengguna secara real-time.
+        \item Pemrograman Logika Kontrol: Membuat program pengendali yang bertugas mengirimkan sinyal pembukaan gerbang hanya jika hasil verifikasi wajah dinyatakan valid (cocok dengan database).
+        \item Mekanisme Sinkronisasi: Mengembangkan skrip otomatis untuk memastikan perangkat gerbang selalu memiliki data karyawan terbaru yang tersinkronisasi dari server pusat.
+    \end{enumerate}
+
+    \item Pengembangan Platform Pendaftaran (Web) \\
+    Tahap ini bertujuan menyediakan antarmuka bagi pengguna untuk mendaftarkan diri.
+    \begin{enumerate}[a.]
+        \item Pembuatan Portal Web: Membangun aplikasi berbasis web yang mudah diakses oleh karyawan melalui perangkat pribadi (laptop/ponsel).
+        \item Sistem Validasi Otomatis: Mengimplementasikan fitur cerdas pada web yang mampu menolak foto buram atau gelap secara otomatis saat pendaftaran, guna menjamin kualitas data dalam sistem.
+    \end{enumerate}
+
+    \item Integrasi dan Kalibrasi Sistem \\
+    Tahap akhir adalah menyatukan perangkat lunak dan perangkat keras dalam satu lingkungan kerja.
+    \begin{enumerate}[a.]
+        \item Pengujian Integrasi: Menghubungkan sistem wajah dengan mekanisme gerbang fisik untuk memastikan perintah "buka kunci" dari perangkat lunak benar-benar menggerakkan lengan gerbang.
+        \item Kalibrasi Lapangan: Melakukan penyesuaian sensitivitas kamera dan ambang batas (threshold) algoritma berdasarkan kondisi pencahayaan di lokasi pemasangan untuk meminimalkan kesalahan deteksi.
+    \end{enumerate}
+\end{enumerate}
+\subsection{Implementasi Prototipe}
 Lingkup implementasi pada tahap ini difokuskan pada satu gerbang akses dengan kemampuan dua arah, yaitu masuk dan keluar. Oleh karena itu, dibutuhkan total dua set perangkat pengenalan wajah. Tabel \ref{tab:rencana-implementasi-detail} merincikan kebutuhan perangkat keras dan estimasi biaya untuk implementasi tersebut.
 \input{table/tab_rencana_implementasi}
 
