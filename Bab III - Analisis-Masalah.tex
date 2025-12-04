@@ -79,15 +79,15 @@ Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungs
 
     \textit{Feature Extraction}:
     \begin{enumerate}[a.]
-        \item ResNet-50, yaitu arsitektur CNN dengan 50 layer yang menggunakan mekanisme residual learning, menjadi backbone umum untuk pengenalan wajah karena mampu mengekstraksi fitur wajah yang kuat dan stabil.
-        \item MobileFaceNet, yaitu model CNN ringan yang cocok digunakan pada perangkat kecil, tetapi masih cukup baik dalam menangkap ciri penting dari wajah.
+        \item ResNet-50, yaitu arsitektur CNN dengan 50 layer yang menggunakan mekanisme residual learning, menjadi backbone umum untuk pengenalan wajah karena mampu mengekstraksi fitur wajah yang kuat dan stabil \parencite{he2015deepresidual}.
+        \item MobileFaceNet, yaitu model CNN ringan yang cocok digunakan pada perangkat kecil, tetapi masih cukup baik dalam menangkap ciri penting dari wajah \parencite{chen2018mobilefacenets}.
     \end{enumerate}
     \medskip
     \medskip
     \textit{Loss Function}:
     \begin{enumerate}[a.]
-        \item ArcFace, metode pelatihan yang membedakan wajah dengan `menjauhkan' jarak antar wajah yang berbeda dan `mendekatkan' wajah dari orang yang sama. 
-        \item MagFace, metode pelatihan yang tidak hanya membuat model mengenali wajah, tapi juga bisa menilai kualitas foto wajah, sehingga hasil pengenalannya lebih stabil.
+        \item ArcFace, metode pelatihan yang membedakan wajah dengan `menjauhkan' jarak antar wajah yang berbeda dan `mendekatkan' wajah dari orang yang sama \parencite{deng2018arcface}. 
+        \item MagFace, metode pelatihan yang tidak hanya membuat model mengenali wajah, tapi juga bisa menilai kualitas foto wajah, sehingga hasil pengenalannya lebih stabil \parencite{meng2021magface}.
     \end{enumerate}
     \item KF-4 Manajemen Pendaftaran
     \begin{enumerate}[a.]
@@ -119,7 +119,7 @@ Untuk menentukan pemilihan solusi terbaik, dilakukan analisis kuantitatif untuk 
 \subsubsection{KF-3: Pengenalan Wajah}
 Berikut merupakan kriteria penilaian dari fungsionalitas pengenalan wajah.
 \input{table/wsm_fr3_criteria.tex}
-Berdasarkan kriteria tersebut, berikut merupakan\textit{Weighted Scoring Model} dari setiap alternatif solusi berikut : 
+Berdasarkan kriteria tersebut, berikut merupakan \textit{Weighted Scoring Model} dari setiap alternatif solusi berikut : 
 \begin{enumerate}
     \item Solusi 1: ResNet-50 + ArcFace
     \item Solusi 2: ResNet-50 + MagFace
