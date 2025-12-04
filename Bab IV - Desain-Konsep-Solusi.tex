@@ -13,7 +13,7 @@ Penerapan desain solusi yang dipilih akan mempengaruhi alur kontrol akses yang t
 	\caption{Alur kontrol akses sebelum penerapan sistem gerbang}
 	\label{gambar:alur-before}
 \end{figure} 
-Gambar \ref{gambar:alur-after-karyawan} dan \ref{gambar:alur-after-tamu} merupakan alur kontrol akses sesudah penerapan sistem pada Gedung IIP. Dari gambar, dapat dilihat dengan jelas perubahan alur yang terjadi, dimana setelah melewati petugas keamanan luar gedung, karyawan dan tamu harus melewati sistem gerbang terlebih dahulu sebelum akhirnya dapat mengakses lift pada lobi gedung. 
+Gambar \ref{gambar:alur-after-karyawan} dan \ref{gambar:alur-after-tamu} merupakan alur kontrol akses sesudah penerapan sistem pada Gedung IIP. Dari gambar, dapat dilihat dengan jelas perubahan alur kontrol akses yang terjadi. Setelah melewati petugas keamanan luar gedung, karyawan dan tamu harus melewati sistem gerbang terlebih dahulu sebelum akhirnya dapat mengakses lift pada lobi gedung. 
 \begin{figure}[H] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
 	\centering
   \captionsetup{justification=centering}
@@ -80,7 +80,7 @@ Gerbang yang akan digunakan kemudian akan terhubung langsung dengan sistem penge
     \item \textbf{Unit Pemrosesan:} Raspberry Pi 4 Model B (4GB) dipilih karena kemampuan \textit{edge computing} yang memadai untuk menjalankan algoritma \textit{Deep Learning} \parencite{raspberrypi}.
     \item \textbf{Visual:} Raspberry Pi Camera Module v3 dengan fitur HDR untuk mengatasi kondisi pencahayaan lobi.
     \item \textbf{Antarmuka:} Layar LCD 5 inci HDMI untuk menampilkan status akses kepada pengguna.
-    \item \textbf{Autentikasi Sekunder:} Modul RFID Reader sebagai opsi akses cadangan.
+    \item \textbf{Autentikasi Sekunder:} Modul RFID \textit{Reader} sebagai opsi akses cadangan.
     \item \textbf{Kontrol Akses:} Modul Relay 5V untuk memicu pembukaan gerbang melalui mekanisme kontak kering (\textit{dry contact}) \parencite{kainz2019raspberry}.
 \end{enumerate}
 Mekanisme fisik gerbang menggunakan \textit{Swing Barrier} untuk mendukung aksesibilitas yang luas, sesuai dengan standar keselamatan \parencite{simarmata2021gerbang}.
@@ -93,12 +93,12 @@ Rancangan sistem kontrol akses ini akan terdiri dari beberapa komponen yang sali
 	\caption{Diagram komponen dari rancangan sistem}
 	\label{gambar:hubungan-komponen}
 \end{figure}
-Berdasarkan gambar, terlihat bahwa sistem kontrol akses dengan gerbang otomatis terdiri dari komponen yang ada pada pemilihan solusi yaitu gerbang, sistem pengenalan wajah (kamera, kontroler, display), sistem RFID (RFID Reader, Kontroler), Tombol darurat, serta komponen-komponen seperti sumber listrik untuk memastikan sistem bekerja sesuai dengan kebutuhan.
+Berdasarkan gambar, terlihat bahwa sistem kontrol akses dengan gerbang otomatis terdiri dari komponen yang ada pada pemilihan solusi yaitu gerbang, sistem pengenalan wajah (kamera, kontroler, \textit{display}), sistem RFID (RFID \textit{Reader}, Kontroler), Tombol darurat, serta komponen-komponen seperti sumber listrik untuk memastikan sistem bekerja sesuai dengan kebutuhan.
 
 \subsection{Logika Autentikasi}
 Logika autentikasi menjelaskan proses pengenalan pengguna yang dilakukan oleh sistem pengenalan wajah. Gambar \ref{gambar:logika-autentikasi} adalah alur proses dari proses pengenalan wajah untuk autentikasi pengguna. 
 
-Setiap beberapa waktu, sistem akan mengambil frame video melalui kamera, jika mendeteksi adanya wajah pada frame, sistem kemudian akan melakukan proses ekstrasi dari fitur wajah menjadi sebuah vektor. hasil ini kemudian dibandingkan dengan data tersimpan untuk mencari vektor terdekat. Jika tidak ditemukan, sistem akan menunjukkan bahwa akses masuk ditolak.
+Setiap beberapa waktu, sistem akan mengambil \textit{frame} video melalui kamera, jika mendeteksi adanya wajah pada frame, sistem kemudian akan melakukan proses ekstrasi dari fitur wajah menjadi sebuah vektor. hasil ini kemudian dibandingkan dengan data tersimpan untuk mencari vektor terdekat. Jika tidak ditemukan, sistem akan menunjukkan bahwa akses masuk ditolak.
 
 \begin{figure}[H] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
 	\centering
@@ -108,7 +108,7 @@ Setiap beberapa waktu, sistem akan mengambil frame video melalui kamera, jika me
 	\label{gambar:logika-autentikasi}
 \end{figure}
 
-Jika menemukan jarak vektor yang dibawah treshold, sistem akan menampilkan akses diterima. Setelah itu, sistem akan mengambil data pengguna yang dikenali tersebut, lalu mencatat log akses dan membuka gerbang. Sistem kemudian akan menunggu beberapa saat sebelum akhirnya kembali mengambil frame Video untuk mendeteksi pengguna berikutnya.
+Jika menemukan jarak vektor yang dibawah \textit{treshold}, sistem akan menampilkan akses diterima. Setelah itu, sistem akan mengambil data pengguna yang dikenali tersebut, lalu mencatat log akses dan membuka gerbang. Sistem kemudian akan menunggu beberapa saat sebelum akhirnya kembali mengambil \textit{frame} video untuk mendeteksi pengguna berikutnya.
 
 \subsection{Alur Pendaftaran pada Sistem Kontrol Akses}
 Sistem pendaftaran digunakan oleh pengguna untuk mendaftarkan wajah mereka, sehingga pengguna dapat dikenali dan diberikan akses masuk. Berikut merupakan alur pendaftaran dari sistem kontrol akses yang akan dikembangkan.
@@ -118,5 +118,6 @@ Sistem pendaftaran digunakan oleh pengguna untuk mendaftarkan wajah mereka, sehi
     	\includegraphics[width=0.6\textwidth]{image/alur-pendaftaran.jpg}
 	\caption{Alur pendaftaran pada sistem kontrol akses}
 	\label{gambar:alur-pendaftaran}
-\end{figure} 
+\end{figure}
+Pendaftaran dimulai dengan memasukkan data pengguna berupa nama, kemudian sistem akan meminta akses kamera pada perangkat. Setelah pengguna mengambil citra gambar, sistem kemudian akan melakukan proses deteksi wajah, dan jika terdeteksi, wajah akan disimpan ke database. Proses ini berlangsung sebanyak tiga kali untuk meningkatkan akurasi pengenalan wajah. 
 

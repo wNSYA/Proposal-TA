@@ -99,7 +99,7 @@ Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungs
     \item KF-5 Integrasi Sistem
     \begin{enumerate}[a.]
         \item Integrasi berbasis API, memungkinkan sistem saling bertukar data secara langsung melalui HTTP \textit{request} dan \textit{response}.
-        \item Integrasi berbasis Manual, dimana sinkronisasi atau pertukaran data dilakukan dengan bantuan manusia.
+        \item Integrasi berbasis Manual, yaitu sinkronisasi atau pertukaran data dilakukan dengan bantuan manusia.
         \item Integrasi berbasis \textit{Webhook}, mengirimkan notifikasi otomatis ke sistem lain setiap adanya peristiwa (\textit{event}) tertentu.
     \end{enumerate}
 
@@ -139,7 +139,7 @@ Berdasarkan kriteria tersebut, berikut merupakan \textit{Weighted Scoring Model}
     \item Solusi 4: MobileFaceNet + MagFace  
 \end{enumerate}
 \input{table/wsm_fr3.tex} 
-Berdasarkan analisis, terlihat bahwa solusi terbaik adalah MobileFaceNet + MagFace, dimana kombinasi ini menawarkan solusi pengenalan wajah yang ringan secara komputasi namun tetap tangguh terhadap citra gambar yang bervariatif, sehingga sangat cocok digunakan pada perangkat terbatas seperti kontroler Raspberry Pi. MobileFaceNet memberikan keunggulan sebagai model yang sangat efisien dengan jumlah parameter yang rendah, memungkinkan inferensi cepat dan akurasi yang memadai. Sementara itu, MagFace merupakan \textit{loss function} yang peka terhadap kualitas citra gambar, sehingga sistem dapat mengurangi kesalahan pada saat mendeteksi dalam pencahayaan rendah, pose yang bervariasi, atau gangguan (\textit{noise}).
+Berdasarkan analisis, terlihat bahwa solusi terbaik adalah teknologi MobileFaceNet + MagFace. Kombinasi ini menawarkan solusi pengenalan wajah yang ringan secara komputasi namun tetap tangguh terhadap citra gambar yang bervariatif, sehingga sangat cocok digunakan pada perangkat terbatas seperti kontroler Raspberry Pi. MobileFaceNet memberikan keunggulan sebagai model yang sangat efisien dengan jumlah parameter yang rendah, memungkinkan inferensi cepat dan akurasi yang memadai. Sementara itu, MagFace merupakan \textit{loss function} yang peka terhadap kualitas citra gambar, sehingga sistem dapat mengurangi kesalahan pada saat mendeteksi dalam pencahayaan rendah, pose yang bervariasi, atau gangguan (\textit{noise}).
 
 \subsubsection{KF-4: Manajemen Pendaftaran}
 Berikut merupakan kriteria penilaian dari fungsionalitas manajemen pendaftaran.
