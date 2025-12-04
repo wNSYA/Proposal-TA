@@ -53,14 +53,14 @@ Setelah merumuskan kebutuhan sistem, langkah selanjutnya adalah melakukan analis
 \subsection{Alternatif Solusi}
 Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungsional yang ada pada sistem.
 \begin{enumerate}
-    \item KF-01 Kontrol Akses
+    \item KF-1 Kontrol Akses
     \begin{enumerate}[a.]
         \item \textit{Swing Barrier}, yaitu tipe gerbang yang membuka dan menutup ke arah dalam atau luar.
         \item \textit{Flap Barrier}, yaitu tipe gerbang yang membuka dan menutup dengan menggeser penghalang ke arah samping.
         \item \textit{Tripod Gate}, yaitu tipe gerbang dengan 3 batang besi yang dapat berputar searah saat kunci terbuka.
     \end{enumerate}
 
-    \item KF-02 Pendeteksi Wajah
+    \item KF-2 Deteksi Wajah
     \begin{enumerate}[a.]
         \item \textit{Face recognition}, yaitu teknologi autentikasi dengan mendeteksi dan mengenali wajah pengguna.
         \item RFID (\textit{Radio Frequency Identifier}), yaitu teknologi autentikasi yang menggunakan kartu yang memancarkan radio frekuensi tertentu.
@@ -68,7 +68,8 @@ Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungs
         \item RFID + Pengenalan Wajah, gabungan dari teknologi pengenalan wajah dan RFID untuk melengkapi kelebihan dan kekurangan masing-masing.
     \end{enumerate}
 
-    \item KF-03 Pengenalan Wajah
+    \item KF-3 Pengenalan Wajah
+    
     Alternatif Solusi untuk pengenalan wajah adalah kombinasi dari alternatif solusi untuk \textit{Feature Extraction} dan \textit{Matching} 
     %     \item ResNet-50 + ArcFace, 
     %     \item ResNet-50 + MagFace
@@ -79,30 +80,30 @@ Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungs
     \textit{Feature Extraction}:
     \begin{enumerate}[a.]
         \item ResNet-50, yaitu arsitektur CNN dengan 50 layer yang menggunakan mekanisme residual learning, menjadi backbone umum untuk pengenalan wajah karena mampu mengekstraksi fitur wajah yang kuat dan stabil.
-        \item MobileFaceNet, yaitu ringan dari model pengenalan wajah, cocok digunakan pada perangkat kecil, tetapi masih cukup baik dalam menangkap ciri penting dari wajah.
+        \item MobileFaceNet, yaitu model CNN ringan yang cocok digunakan pada perangkat kecil, tetapi masih cukup baik dalam menangkap ciri penting dari wajah.
     \end{enumerate}
     \medskip
     \medskip
     \textit{Loss Function}:
     \begin{enumerate}[a.]
-        \item ArcFace, metode pelatihan yang membedakan wajah dengan \"menjauhkan\" jarak antar wajah yang berbeda dan \"mendekatkan\" wajah dari orang yang sama. 
+        \item ArcFace, metode pelatihan yang membedakan wajah dengan `menjauhkan' jarak antar wajah yang berbeda dan `mendekatkan' wajah dari orang yang sama. 
         \item MagFace, metode pelatihan yang tidak hanya membuat model mengenali wajah, tapi juga bisa menilai kualitas foto wajah, sehingga hasil pengenalannya lebih stabil.
     \end{enumerate}
-    \item KF-04 Manajemen Data
+    \item KF-4 Manajemen Pendaftaran
     \begin{enumerate}[a.]
         \item Aplikasi Web, menggunakan website yang dapat diakses melalui browser untuk pendaftaran.
         \item Aplikasi Desktop, menggunakan aplikasi berbasis desktop untuk perangkat PC resepsionis.
         \item Aplikasi Mobile, menggunakan aplikasi berbasis mobile untuk ponsel pengguna.
     \end{enumerate}
 
-    \item KF-05 Integrasi Sistem
+    \item KF-5 Integrasi Sistem
     \begin{enumerate}[a.]
         \item Integrasi berbasis API, memungkinkan sistem saling bertukar data secara langsung melalui HTTP \textit{request} dan \textit{response}.
         \item Integrasi berbasis \textit{Message Queue}, mengirim dan memproses pesan secara asinkron melalui antrian.
         \item Integrasi berbasis \textit{Webhook}, mengirimkan notifikasi otomatis ke sistem lain setiap adanya peristiwa (\textit{event}) tertentu.
     \end{enumerate}
 
-    \item KF-06 Keselamatan/\textit{safety}
+    \item KF-6 Keselamatan/\textit{safety}
     \begin{enumerate}[a.]
         \item Gerbang \textit{fail-safe}, yaitu gerbang yang memiliki kondisi terbuka saat tidak mendapatkan aliran listrik.
         \item Tombol Darurat, yaitu tombol yang dapat membuka gerbang tanpa autentikasi.
@@ -111,9 +112,10 @@ Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungs
 
 \end{enumerate}
 \subsection{Analisis Penentuan Solusi}
-Untuk menentukan pemilihan solusi terbaik, dilakukan analisis kualitatif dan kuantitatif untuk setiap alternatif solusi. Berikut merupakan analisis kualitatif dari alternatif solusi sistem kontrol akses.
-\input{table/tab_alternatif_solusi.tex}
-Setelah itu, kami melakukan analisis kuantitatif dengan metode \textit{Weighted Scoring Model} (WSM) untuk membandingkan setiap alternatif solusi. berikut merupakan analisis WSM dari setiap alternatif solusi setiap kebutuhan.
+Untuk menentukan pemilihan solusi terbaik, dilakukan analisis kuantitatif untuk memilih solusi terbaik. Analisis kuantitatif dilakukan dengan metode \textit{Weighted Scoring Model} (WSM) untuk membandingkan setiap alternatif solusi. berikut merupakan analisis WSM dari setiap alternatif solusi setiap kebutuhan.
+% \input{table/tab_alternatif_solusi.tex}
+\subsubsection{KF-1: Kontrol Akses}
+\subsubsection{KF-2: Deteksi Wajah}
 \subsubsection{KF-3: Pengenalan Wajah}
 Berikut merupakan kriteria penilaian dari fungsionalitas pengenalan wajah.
 \input{table/wsm_fr3_criteria.tex}
@@ -124,13 +126,22 @@ Berdasarkan kriteria tersebut, berikut merupakan\textit{Weighted Scoring Model} 
     \item Solusi 3: MobileFaceNet + ArcFace
     \item Solusi 4: MobileFaceNet + MagFace  
 \end{enumerate}
-
 \input{table/wsm_fr3.tex} 
+Berdasarkan analisis, terlihat bahwa solusi terbaik adalah MobileFaceNet + MagFace, dimana kombinasi ini menawarkan solusi pengenalan wajah yang ringan secara komputasi namun tetap tangguh terhadap citra gambar yang bervariatif, sehingga sangat cocok digunakan pada perangkat terbatas seperti kontroler Raspberry Pi. MobileFaceNet memberikan keunggulan sebagai model yang sangat efisien dengan jumlah parameter yang rendah, memungkinkan inferensi cepat dan akurasi yang memadai. Sementara itu, MagFace merupakan \textit{loss function} yang peka terhadap kualitas citra gambar, sehingga sistem dapat mengurangi kesalahan pada saat mendeteksi dalam pencahayaan rendah, pose yang bervariasi, atau gangguan (\textit{noise}).
+
+\subsubsection{KF-4: Manajemen Pendaftaran}
+Berikut merupakan kriteria penilaian dari fungsionalitas pengenalan wajah.
+\input{table/wsm_fr4_criteria.tex}
+Berdasarkan kriteria tersebut, berikut merupakan \textit{Weighted Scoring Model} dari setiap alternatif solusi.
+\input{table/wsm_fr4.tex} 
+Berdasarkan analisis, terlihat bahwa Aplikasi \textit{web} menawarkan efisiensi waktu, kemudahan, kompatibilitas, dan privasi yang lebih baik dibandingkan dengan \textit{mobile} dan \textit{dekstop}.
+\subsubsection{KF-5: Integrasi Sistem}
+\subsubsection{KF-6: Keselamatan/safety}
 Berdasarkan analisis yang telah dilakukan, solusi terbaik yang dapat kami usulkan adalah:
 \begin{enumerate}
     \item Kontrol Akses: \textit{Swing Barrier}
     \item Autentikasi: Kombinasi Pengenalan Wajah + RFID
-    \item Manajemen Data: Aplikasi Web
+    \item Manajemen Pendaftaran: Aplikasi Web
     \item Integrasi Sistem: Integrasi API
     \item Keselamatan/\textit{safety}: Kombinasi \textit{Fail-safe gate} + Tombol Darurat.
 \end{enumerate}
