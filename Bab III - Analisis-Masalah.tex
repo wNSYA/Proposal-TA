@@ -70,7 +70,7 @@ Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungs
 
     \item KF-3 Pengenalan Wajah
     
-    Alternatif Solusi untuk pengenalan wajah adalah kombinasi dari alternatif solusi untuk \textit{Feature Extraction} dan \textit{Matching} 
+    Alternatif Solusi untuk pengenalan wajah adalah kombinasi dari alternatif solusi untuk \textit{Feature Extraction} dan \textit{Loss Function}.
     %     \item ResNet-50 + ArcFace, 
     %     \item ResNet-50 + MagFace
     %     \item MobileFaceNet + ArcFace
@@ -99,23 +99,35 @@ Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungs
     \item KF-5 Integrasi Sistem
     \begin{enumerate}[a.]
         \item Integrasi berbasis API, memungkinkan sistem saling bertukar data secara langsung melalui HTTP \textit{request} dan \textit{response}.
-        \item Integrasi berbasis \textit{Message Queue}, mengirim dan memproses pesan secara asinkron melalui antrian.
+        \item Integrasi berbasis Manual, dimana sinkronisasi atau pertukaran data dilakukan dengan bantuan manusia.
         \item Integrasi berbasis \textit{Webhook}, mengirimkan notifikasi otomatis ke sistem lain setiap adanya peristiwa (\textit{event}) tertentu.
     \end{enumerate}
 
     \item KF-6 Keselamatan/\textit{safety}
     \begin{enumerate}[a.]
-        \item Gerbang \textit{fail-safe}, yaitu gerbang yang memiliki kondisi terbuka saat tidak mendapatkan aliran listrik.
-        \item Tombol Darurat, yaitu tombol yang dapat membuka gerbang tanpa autentikasi.
-        \item Gerbang \textit{fail-safe} + Tombol Darurat, yaitu penggabungan solusi yang memungkinkan gerbang terbuka saat listrik padam atau tombol ditekan.
+        \item Gerbang otomatis\textit{fail-safe}, yaitu gerbang yang memiliki kondisi terbuka saat tidak mendapatkan aliran listrik.
+        \item Tombol manual darurat, yaitu tombol yang dapat membuka gerbang tanpa autentikasi.
+        \item Kombinasi Gerbang otomatis \textit{fail-safe} + Tombol manual darurat, yaitu penggabungan solusi yang memungkinkan gerbang terbuka saat listrik padam atau saat tombol ditekan, memastikan aspek keselamatan jika salah satu gagal berfungsi.
     \end{enumerate}
 
 \end{enumerate}
 \subsection{Analisis Penentuan Solusi}
 Untuk menentukan pemilihan solusi terbaik, dilakukan analisis kuantitatif untuk memilih solusi terbaik. Analisis kuantitatif dilakukan dengan metode \textit{Weighted Scoring Model} (WSM) untuk membandingkan setiap alternatif solusi. berikut merupakan analisis WSM dari setiap alternatif solusi setiap kebutuhan.
 % \input{table/tab_alternatif_solusi.tex}
+
 \subsubsection{KF-1: Kontrol Akses}
+Berikut merupakan kriteria penilaian dari fungsionalitas kontrol akses.
+\input{table/wsm_fr1_criteria.tex}
+Berdasarkan kriteria tersebut, berikut merupakan \textit{Weighted Scoring Model} dari setiap alternatif solusi.
+\input{table/wsm_fr1.tex}
+Analisis menunjukkan bahwa swing barrier merupakan solusi terbaik yang menawarkan keseimbangan antara keamanan, kecepatan, dan aksesibilitas yang baik dibandingkan dengan alternatif solusi lainnya.
+
 \subsubsection{KF-2: Deteksi Wajah}
+Berikut merupakan kriteria penilaian dari fungsionalitas deteksi wajah.
+\input{table/wsm_fr2_criteria.tex}
+Berdasarkan kriteria tersebut, berikut merupakan \textit{Weighted Scoring Model} dari setiap alternatif solusi.
+\input{table/wsm_fr2.tex}
+
 \subsubsection{KF-3: Pengenalan Wajah}
 Berikut merupakan kriteria penilaian dari fungsionalitas pengenalan wajah.
 \input{table/wsm_fr3_criteria.tex}
@@ -130,20 +142,32 @@ Berdasarkan kriteria tersebut, berikut merupakan \textit{Weighted Scoring Model}
 Berdasarkan analisis, terlihat bahwa solusi terbaik adalah MobileFaceNet + MagFace, dimana kombinasi ini menawarkan solusi pengenalan wajah yang ringan secara komputasi namun tetap tangguh terhadap citra gambar yang bervariatif, sehingga sangat cocok digunakan pada perangkat terbatas seperti kontroler Raspberry Pi. MobileFaceNet memberikan keunggulan sebagai model yang sangat efisien dengan jumlah parameter yang rendah, memungkinkan inferensi cepat dan akurasi yang memadai. Sementara itu, MagFace merupakan \textit{loss function} yang peka terhadap kualitas citra gambar, sehingga sistem dapat mengurangi kesalahan pada saat mendeteksi dalam pencahayaan rendah, pose yang bervariasi, atau gangguan (\textit{noise}).
 
 \subsubsection{KF-4: Manajemen Pendaftaran}
-Berikut merupakan kriteria penilaian dari fungsionalitas pengenalan wajah.
+Berikut merupakan kriteria penilaian dari fungsionalitas manajemen pendaftaran.
 \input{table/wsm_fr4_criteria.tex}
 Berdasarkan kriteria tersebut, berikut merupakan \textit{Weighted Scoring Model} dari setiap alternatif solusi.
 \input{table/wsm_fr4.tex} 
 Berdasarkan analisis, terlihat bahwa Aplikasi \textit{web} menawarkan efisiensi waktu, kemudahan, kompatibilitas, dan privasi yang lebih baik dibandingkan dengan \textit{mobile} dan \textit{dekstop}.
+
 \subsubsection{KF-5: Integrasi Sistem}
+Berikut merupakan kriteria penilaian dari fungsionalitas integrasi sistem.
+\input{table/wsm_fr5_criteria.tex}
+Berdasarkan kriteria tersebut, berikut merupakan \textit{Weighted Scoring Model} dari setiap alternatif solusi.
+\input{table/wsm_fr5.tex}
+Analisis penilaian menunjukkan bahwa REST API merupakan solusi terbaik dibandingkan alternatif solusi lainnya, dimana REST API lebih unggul dalam standarisasi kemudahan dalam melakukan \textit{debugging}. 
+
 \subsubsection{KF-6: Keselamatan/safety}
-Berdasarkan analisis yang telah dilakukan, solusi terbaik yang dapat kami usulkan adalah:
-\begin{enumerate}
-    \item Kontrol Akses: \textit{Swing Barrier}
-    \item Autentikasi: Kombinasi Pengenalan Wajah + RFID
-    \item Manajemen Pendaftaran: Aplikasi Web
-    \item Integrasi Sistem: Integrasi API
-    \item Keselamatan/\textit{safety}: Kombinasi \textit{Fail-safe gate} + Tombol Darurat.
-\end{enumerate}
+Berikut merupakan kriteria penilaian dari fungsionalitas integrasi sistem.
+\input{table/wsm_fr6_criteria.tex}
+Berdasarkan kriteria tersebut, berikut merupakan \textit{Weighted Scoring Model} dari setiap alternatif solusi.
+\input{table/wsm_fr6.tex} 
+Solusi kombinasi, yaitu gabungan dengan solusi otomatis(\textit{fail-safe}) dan tombol manual merupakan solusi terbaik pada sistem. Solusi ini memastikan aspek keselamatan yang mumpuni dengan keandalan, kepatuhan dan kecepatan respon yang tinggi.
+% Berdasarkan analisis yang telah dilakukan, solusi terbaik yang dapat kami usulkan adalah:
+% \begin{enumerate}
+%     \item Kontrol Akses: \textit{Swing Barrier}
+%     \item Autentikasi: Kombinasi Pengenalan Wajah + RFID
+%     \item Manajemen Pendaftaran: Aplikasi Web
+%     \item Integrasi Sistem: Integrasi API
+%     \item Keselamatan/\textit{safety}: Kombinasi \textit{Fail-safe gate} + Tombol Darurat.
+% \end{enumerate}
 
 

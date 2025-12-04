@@ -24,14 +24,12 @@ Terdapat beberapa ketentuan dan rekomendasi tentang bagaimana spesifikasi dari g
 Sebagai rekomendasi, \textcite{ding2021winggate} menyebutkan bahwa gerbang bertipe wing lebih baik digunakan dibandingkan dengan gerbang bertipe flat. Pada jurnal tersebut, hasil eksperimen menunjukkan bahwa gerbang bertipe \textit{wing} memiliki kontrol evakuasi dan keramaian yang lebih baik dibandingkan dengan gerbang bertipe \textit{flat}.
 
 \section{Sistem Pengenalan Wajah}
-Pengenalan wajah adalah teknologi dalam visi komputer yang digunakan untuk mengidentifikasi seseorang atau suatu objek dari gambar atau video. Pengenalan wajah adalah masalah pengenalan pola visual, dimana wajah sebagai objek tiga dimensi sebagai subjek yang memiliki pencahayaan, pose, dan ekspresi yang bervariasi untuk diidentifikasi berdasarkan gambar dua dimensi yang diambil \autocite{li2024handbook_face_recognition}. Berdasarkan \textcite{li2024handbook_face_recognition} dalam bukunya \citetitle{li2024handbook_face_recognition}, sistem pengenalan wajah terdiri atas empat modul utama, yaitu \textit{detection}, \textit{aligment}, \textit{feature extraction}, dan \textit{matching}, dimana lokasisasi dan normalisasi (tahapan \textit{face detection} dan \textit{aligment}) adalah langkah proses yang dilakukan sebelum pengenalan wajah (\textit{facial feature extraction} dan \textit{matching}).
+Pengenalan wajah adalah teknologi dalam visi komputer yang digunakan untuk mengidentifikasi seseorang atau suatu objek dari gambar atau video. Pengenalan wajah adalah masalah pengenalan pola visual, dimana wajah sebagai objek tiga dimensi sebagai subjek yang memiliki pencahayaan, pose, dan ekspresi yang bervariasi untuk diidentifikasi berdasarkan gambar dua dimensi yang diambil \autocite{li2024handbook_face_recognition}. Berdasarkan \textcite{li2024handbook_face_recognition} dalam bukunya \citetitle{li2024handbook_face_recognition}, sistem pengenalan wajah terdiri atas empat modul utama, yaitu \textit{detection}, \textit{aligment}, \textit{feature extraction}, dan \textit{matching}, dimana lokalisasi dan normalisasi (tahapan \textit{face detection} dan \textit{aligment}) adalah langkah proses yang dilakukan sebelum pengenalan wajah (\textit{facial feature extraction} dan \textit{matching}).
 
 Pengenalan wajah sudah menjadi biometrik untuk melakukan autentikasi yang digunakan secara luas di berbagai bidang, seperti militer, keuangan, keamanan publik, hingga kehidupan sehari hari. \textcite{Jadhav_2024} menyebutkan bahwa berdasarkan survey dari HID Global pada tahun 2024, jumlah bisnis yang menggunakan biometrik sebagai kontrol akses mereka naik dari 30 persen menjadi 39 persen pada dua tahun terakhir, yang menunjukkan bahwa penggunaan biometrik, termasuk pengenalan wajah sudah mulai diadopsi secara cepat oleh pelaku bisnis.
 
 % Teknologi pengenalan wajah telah mengalami perkembangan yang progresif dimana saat ini telah berkembang pendekatan \textit{Deep Learning} yang menawarkan akurasi pengenalan yang tinggi. metode ini telah dibahas oleh \textcite{Gupta} yang menunjukkan bahwa penggunaan pustaka modern seperti OpenCV dengan model \textit{Deep Learning} mampu melakukan deteksi dan pengenalan wajah secara \textit{real-time} dengan tingkat kesalahan rendah, bahkan dalam kondisi lingkungan yang dinamis. 
-\subsection{Teknologi Deep Learning pada Sistem Pengenalan Wajah}
-\subsection{Teknologi Convulotional Neural Network pada Sistem Pengenalan Wajah}
-\subsection{Parameter Evaluasi Kinerja Biometrik}
+\section{Parameter Evaluasi Kinerja Biometrik}
 Untuk mengukur keandalan sistem pengenalan wajah, standar internasional ISO/IEC 19795-1 menetapkan beberapa metrik utama yang digunakan dalam pengujian \parencite{iso19795}:
 \begin{enumerate}
     \item Akurasi atau \textit{Accuracy}, yaitu rasio total prediksi yang benar terhadap total seluruh percobaan.
@@ -47,7 +45,17 @@ Sistem pengenalan wajah atau biometrik memiliki beberapa landasan hukum di Indon
 Berdasarkan studi terbaru di Indonesia, beberapa isu hukum dan etika yang muncul bila menerapkan pengenalan wajah diantaranya adalah Persetujuan dan Kesadaran Subjek Data, Privasi dan Pengamanan Data, Kesalahan Identifikasi dan Risiko Penyalahgunaan, hingga Transparansi dan Akuntabilitas.
 
 \section{Integrasi Sistem}
+Integrasi antara sistem perangkat lunak cerdas dan aktuator fisik atau gerbang umumnya dilakukan melalui mekanisme kontak kering atau \textit{dry contact} menggunakan modul relay. Kainz dkk. (2019) mendemonstrasikan skema di mana pin GPIO pada mikrokontroler atau minikomputer digunakan untuk memicu relay, yang kemudian bertindak sebagai saklar elektronik untuk sirkuit pengunci pintu \parencite{kainz2019raspberry}.
+
+Selain itu, Wu dkk. (2020) dalam studinya mengenai sistem kontrol akses menekankan pentingnya integrasi sensor keamanan untuk mencegah gerbang menutup saat pengguna masih berada di jalur lintasan. Prinsip-prinsip ini diadopsi dalam perancangan untuk memastikan sistem tidak hanya aman secara digital, tetapi juga aman secara fisik bagi pengguna \parencite{wu2020design}.
+
 \section{\textit{Design Thinking}}
+Metodologi \textit{Design Thinking} adalah sebuah kerangka kerja iteratif yang berfokus pada pemahaman mendalam terhadap pengguna sebagai dasar pengembangan solusi.
+\textcite{Plattner_2010} menyatakan bahwa proses ini dimulai dari tahap \textit{Empathize}, yaitu pengumpulan wawasan mengenai perilaku, kebutuhan, dan tantangan pengguna melalui observasi maupun interaksi langsung.
+Selanjutnya, tahap \textit{Define} digunakan untuk menyusun dan merumuskan inti permasalahan berdasarkan temuan yang telah terkumpul.
+Pada tahap \textit{Ideate}, berbagai kemungkinan solusi dieksplorasi dan dikembangkan melalui teknik kreatif seperti \textit{brainstorming} atau pemetaan ide.
+Tahap berikutnya adalah \textit{Prototype}, yaitu pembuatan representasi awal dari solusi agar dapat diuji dan divalidasi secara cepat.
+Terakhir, tahap \textit{Test} dilakukan untuk mengumpulkan umpan balik pengguna, yang kemudian menjadi dasar untuk penyempurnaan solusi secara berulang \autocite{Plattner_2010}.
 % \section{Pengembangan Sistem Gerbang Otomatis pada KAI}
 % Layanan \textit{Face Recognition Boarding} KAI merupakan inovasi digital yang diluncurkan oleh PT Kereta Api Indonesia (KAI) untuk mempermudah proses keberangkatan penumpang kereta api jarak jauh. Melalui sistem ini, penumpang tidak lagi perlu menunjukkan kartu identitas (KTP) atau mencetak \textit{boarding pass}, karena proses verifikasi identitas dilakukan secara otomatis menggunakan teknologi pengenalan wajah. Teknologi ini mulai diterapkan di beberapa stasiun besar seperti Stasiun Gambir sejak 1 September 2023, dan akan diperluas secara bertahap ke stasiun-stasiun lainnya di Indonesia.
 

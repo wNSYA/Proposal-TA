@@ -97,6 +97,9 @@ Berdasarkan gambar, terlihat bahwa sistem kontrol akses dengan gerbang otomatis 
 
 \subsection{Logika Autentikasi}
 Logika autentikasi menjelaskan proses pengenalan pengguna yang dilakukan oleh sistem pengenalan wajah. Gambar \ref{gambar:logika-autentikasi} adalah alur proses dari proses pengenalan wajah untuk autentikasi pengguna. 
+
+Setiap beberapa waktu, sistem akan mengambil frame video melalui kamera, jika mendeteksi adanya wajah pada frame, sistem kemudian akan melakukan proses ekstrasi dari fitur wajah menjadi sebuah vektor. hasil ini kemudian dibandingkan dengan data tersimpan untuk mencari vektor terdekat. Jika tidak ditemukan, sistem akan menunjukkan bahwa akses masuk ditolak.
+
 \begin{figure}[H] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
 	\centering
   \captionsetup{justification=centering}
@@ -105,9 +108,15 @@ Logika autentikasi menjelaskan proses pengenalan pengguna yang dilakukan oleh si
 	\label{gambar:logika-autentikasi}
 \end{figure}
 
-Setiap beberapa waktu, sistem akan mengambil frame video melalui kamera, jika mendeteksi adanya wajah pada frame, sistem kemudian akan melakukan proses ekstrasi dari fitur wajah menjadi sebuah vektor. hasil ini kemudian dibandingkan dengan data tersimpan untuk mencari vektor terdekat. Jika tidak ditemukan, sistem akan menunjukkan bahwa akses masuk ditolak.
+Jika menemukan jarak vektor yang dibawah treshold, sistem akan menampilkan akses diterima. Setelah itu, sistem akan mengambil data pengguna yang dikenali tersebut, lalu mencatat log akses dan membuka gerbang. Sistem kemudian akan menunggu beberapa saat sebelum akhirnya kembali mengambil frame Video untuk mendeteksi pengguna berikutnya.
 
-Jika sistem menemukan jarak vektor yang dibawah treshold, sistem akan menampilkan akses diterima. Setelah itu, sistem akan mengambil data pengguna yang dikenali tersebut, lalu mencatat log akses dan membuka gerbang. Sistem kemudian akan menunggu beberapa saat sebelum akhirnya kembali mengambil frame Video untuk mendeteksi pengguna berikutnya.
-
-\subsection{Alur Sistem Pendaftaran}
+\subsection{Alur Pendaftaran pada Sistem Kontrol Akses}
+Sistem pendaftaran digunakan oleh pengguna untuk mendaftarkan wajah mereka, sehingga pengguna dapat dikenali dan diberikan akses masuk. Berikut merupakan alur pendaftaran dari sistem kontrol akses yang akan dikembangkan.
+\begin{figure}[H] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
+	\centering
+  \captionsetup{justification=centering}
+    	\includegraphics[width=0.6\textwidth]{image/alur-pendaftaran.jpg}
+	\caption{Alur pendaftaran pada sistem kontrol akses}
+	\label{gambar:alur-pendaftaran}
+\end{figure} 
 

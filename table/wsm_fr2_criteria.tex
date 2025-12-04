@@ -1,0 +1,25 @@
+\begin{table}[H]
+\centering
+\caption{Kriteria penilaian solusi pendeteksi wajah}
+\label{tab:kriteria-pendeteksi-wajah}
+\begin{tabularx}{\textwidth}{|p{3.5cm}|p{2cm}|X|}
+\hline
+\textbf{Kriteria} & \textbf{Bobot(\%)} & \textbf{Alasan} \\
+\hline
+Akurasi Deteksi & 40\% &
+Pada sistem kontrol akses, akurasi deteksi wajah sangat penting karena kesalahan deteksi (\textit{missed detection} atau \textit{false detection}) dapat menghambat proses autentikasi.  \\
+\hline
+Kecepatan (\textit{Latency} / FPS) & 25\% &
+Sistem gerbang membutuhkan respons \textit{real-time} agar tidak terjadi antrean. \\
+\hline
+Efisiensi Perangkat (Resource Usage) & 15\% &
+Model deteksi yang efisien dapat berjalan pada edge device tanpa memerlukan perangkat keras mahal.\\
+\hline
+Robustness Kondisi Lapangan & 10\% &
+Detektor harus tahan terhadap variasi pose, pencahayaan, dan occlusion.  \\
+\hline
+Kompleksitas Implementasi & 10\% &
+Kompleksitas memengaruhi waktu integrasi dan risiko bug. Model dengan arsitektur sederhana lebih mudah di-deploy pada sistem pintu otomatis tanpa modifikasi pipeline besar. \\
+\hline
+\end{tabularx}
+\end{table}
