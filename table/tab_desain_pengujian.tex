@@ -1,17 +1,69 @@
-\begin{table}[H]
-\centering
-\caption{Desain Pengujian dan Evaluasi Sistem}
-\label{tab:desain-pengujian-detail}
-\begin{tabularx}{\textwidth}{ l >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X }
+\begin{longtable}{ 
+    p{\dimexpr 0.2\textwidth - 2\tabcolsep} 
+    >{\raggedright\arraybackslash}p{\dimexpr 0.425\textwidth - 2\tabcolsep} 
+    >{\raggedright\arraybackslash}p{\dimexpr 0.425\textwidth - 2\tabcolsep} 
+}
+
+% --- DEFINISI HEADER (Halaman Pertama) ---
+\caption{Desain Pengujian dan Evaluasi Sistem} \label{tab:desain-pengujian-detail} \\
 \toprule
 \textbf{Kriteria} & \textbf{Metode Verifikasi atau Validasi} & \textbf{Parameter Keberhasilan} \\
 \midrule
-\textit{Verifikasi Fungsional} & & \\
-KF-5 (API) & Pengujian \textit{endpoint} API menggunakan Postman. & API mengembalikan respon kode 200 OK dan format JSON yang valid. \\
-KF-6 (Safety) & Simulasi pemutusan daya listrik dan penekanan tombol darurat. & Kunci gerbang terlepas (mode bebas dorong) secara instan. \\
+\endfirsthead
+
+% --- DEFINISI HEADER (Halaman Lanjutan) ---
+\caption[]{Desain Pengujian dan Evaluasi Sistem (Lanjutan)} \\
+\toprule
+\textbf{Kriteria} & \textbf{Metode Verifikasi atau Validasi} & \textbf{Parameter Keberhasilan} \\
 \midrule
-\textit{Validasi Nonfungsional} & & \\
-KNF-5 (Keandalan) & Uji operasional (\textit{stress test}) selama sehari. & Tidak terjadi \textit{crash}, \textit{overheat}, atau kegagalan fungsi selama pengujian. \\
+\endhead
+
+% --- DEFINISI FOOTER ---
 \bottomrule
-\end{tabularx}
-\end{table}
+\endfoot
+
+% --- ISI TABEL ---
+
+\multicolumn{3}{l}{\textit{\textbf{Verifikasi Fungsional}}} \\
+KF-3 \newline (Pengenalan Wajah) & 
+Uji 5 pengguna yang belum terdaftar dan 5 orang yang sudah terdaftar untuk menggunakan sistem pengenalan wajah. & 
+Sistem dapat dengan benar mengenali seluruh pengguna yang terdaftar dan dapat dengan benar tidak mengenali seluruh pengguna yang tidak terdaftar. \\
+\addlinespace
+
+KF-4 \newline (Pendaftaran) & 
+Uji pengguna menggunakan aplikasi untuk mendaftarkan wajah mereka. & 
+Pengguna berhasil mendaftarkan wajahnya ke sistem tanpa arahan. \\
+\addlinespace
+
+KF-5 \newline (API) & 
+Pengujian \textit{endpoint} API menggunakan Postman. & 
+API mengembalikan respon kode 200 OK dan format JSON yang valid. \\
+\addlinespace
+
+KF-6 \newline (Safety) & 
+Simulasi pemutusan daya listrik dan penekanan tombol darurat. & 
+Kunci gerbang terlepas (mode bebas dorong) secara instan. \\
+\midrule
+
+\multicolumn{3}{l}{\textit{\textbf{Validasi Nonfungsional}}} \\
+KNF-3 \newline (Waktu Respon) & 
+Pengujian dengan menghitung waktu dari pengguna menampilkan wajah sampai gerbang dibuka. & 
+Waktu sampai gerbang terbuka kurang dari tiga detik. \\
+\addlinespace
+
+KNF-4 \newline (Keamanan) & 
+a. Pengujian enkripsi data wajah \newline
+b. Pengujian akses kontrol database \newline
+c. Pengujian integritas data \newline
+d. Pengujian Audit dan Logging & 
+a. Semua file template dan foto harus terenkripsi. \newline
+b. Pengguna tidak sah tidak bisa melihat, mengubah, atau menghapus data wajah. \newline
+c. Sistem menolak autentikasi jika data wajah rusak atau dimanipulasi. \newline
+d. Semua log akses tercatat dan tidak bisa diubah. \\
+\addlinespace
+
+KNF-5 \newline (Keandalan) & 
+Uji operasional (\textit{stress test}) selama sehari. & 
+Tidak terjadi \textit{crash}, \textit{overheat}, atau kegagalan fungsi selama pengujian. \\
+
+\end{longtable}
