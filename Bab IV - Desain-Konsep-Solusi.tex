@@ -52,17 +52,30 @@ Selain perubahan alur, terdapat juga perubahan pada lobi gedung secara langsung 
 	\label{gambar:denah-sesudah}
 \end{figure}
 \section{Penjelasan Desain}
-Bagian ini akan menjelaskan secara ringkas bagaimana rancangan sistem kontrol akses akan diimplementasikan. Penjelasan desain ini meliputi keterhubungan antarkomponen, penjelasan tentang komponen yang dipilih secara ringkas serta logika proses autentikasi.
+Bagian ini akan menjelaskan secara ringkas bagaimana rancangan sistem kontrol akses akan diimplementasikan. Penjelasan desain ini meliputi keterhubungan antarkomponen, penjelasan tentang komponen yang dipilih secara ringkas, logika proses autentikasi serta logika proses pendaftaran.
 \subsection{Spesifikasi Perangkat Keras}
-Secara fisik, sistem gerbang dirancang untuk memiliki tiga gerbang normal pada satu sisi dan satu gerbang disabiilitas untuk sisi lainnya, dengan gerbang disabilitas akan memiliki lebar gerbang yang lebih lebar (80 cm) dibandingkan dengan gerbang normal (60 cm). Gambar \ref{gambar:gerbang-normal} menunjukkan Topologi fisik dari gerbang normal yang akan dirancang.
+Gerbang bertipe \textit{swing barrier} dipilih untuk mendukung aksesibilitas yang luas, sesuai dengan standar keselamatan \parencite{simarmata2021gerbang}. Dalam implementasinya, Sistem dirancang akan memiliki tiga gerbang normal pada satu sisi dan satu gerbang disabiilitas untuk sisi lainnya, dengan gerbang disabilitas akan memiliki jalur minimal yang lebih lebar (80 cm) dibandingkan dengan gerbang normal (60 cm). Gambar \ref{gambar:dimensi-gerbang} menunjukkan dimensi dari gerbang yang akan digunakan.
 \begin{figure}[H] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
 	\centering
   \captionsetup{justification=centering}
     	\includegraphics[width=1\textwidth]{image/gerbang-satuan.png}
-	\caption{Topologi fisik dari gerbang normal}
-	\label{gambar:gerbang-normal}
+	\caption{Dimensi dari \textit{swing barrier.}}
+	\label{gambar:dimensi-gerbang}
 \end{figure}
-Berdasarkan analisis kebutuhan pada Bab III dan diagram hubungan komponen di atas, spesifikasi perangkat keras yang dipilih meliputi:
+% Berikut spesifikasi gerbang yang akan digunakan dengan lebih rinci:
+% \begin{enumerate}
+% 	\item Dimensi: L: 1400mm x W: 185mm x H:1020mm
+% 	\item Material: SUS 304 (\textit{stainless steel})
+% 	\item Material \textit{Swing Arm}: Akrilik/\textit{tempered glass}
+% 	\item Lebar jalur: 600mm - 900mm
+% 	\item Bukaan gerbang: Dua arah
+% 	\item Mekanisme bukaan: \textit{DC Brushless Motor}
+% 	\item \textit{Pass rate}: 40 orang/menit 
+% 	\item Waktu membuka gerbang: 0,2 detik
+% 	\item \textit{Power supply}: 100V-240V 50/60Hz
+% 	\item \textit{Open Signal}: \textit{Passive Relay} (\textit{Dry Contact})
+% \end{enumerate} 
+Gerbang yang akan digunakan kemudian akan terhubung langsung dengan sistem pengenalan wajah dan RFID, Berdasarkan analisis kebutuhan pada Bab III, spesifikasi perangkat keras yang dipilih meliputi:
 \begin{enumerate}
     \item \textbf{Unit Pemrosesan:} Raspberry Pi 4 Model B (4GB) dipilih karena kemampuan \textit{edge computing} yang memadai untuk menjalankan algoritma \textit{Deep Learning} \parencite{raspberrypi}.
     \item \textbf{Visual:} Raspberry Pi Camera Module v3 dengan fitur HDR untuk mengatasi kondisi pencahayaan lobi.
@@ -70,7 +83,7 @@ Berdasarkan analisis kebutuhan pada Bab III dan diagram hubungan komponen di ata
     \item \textbf{Autentikasi Sekunder:} Modul RFID Reader sebagai opsi akses cadangan.
     \item \textbf{Kontrol Akses:} Modul Relay 5V untuk memicu pembukaan gerbang melalui mekanisme kontak kering (\textit{dry contact}) \parencite{kainz2019raspberry}.
 \end{enumerate}
-Selain itu, mekanisme fisik gerbang menggunakan \textit{Swing Barrier} untuk mendukung aksesibilitas yang luas, sesuai dengan standar keselamatan \parencite{simarmata2021gerbang}.
+Mekanisme fisik gerbang menggunakan \textit{Swing Barrier} untuk mendukung aksesibilitas yang luas, sesuai dengan standar keselamatan \parencite{simarmata2021gerbang}.
 \subsection{Diagram Komponen}
 Rancangan sistem kontrol akses ini akan terdiri dari beberapa komponen yang saling terhubung. Gambar \ref{gambar:hubungan-komponen} Menunjukkan diagram komponen dari sistem.
 \begin{figure}[H] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
@@ -84,7 +97,7 @@ Berdasarkan gambar, terlihat bahwa sistem kontrol akses dengan gerbang otomatis 
 
 \subsection{Logika Autentikasi}
 Logika autentikasi menjelaskan proses pengenalan pengguna yang dilakukan oleh sistem pengenalan wajah. Gambar \ref{gambar:logika-autentikasi} adalah alur proses dari proses pengenalan wajah untuk autentikasi pengguna. 
-\begin{figure}[ht] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
+\begin{figure}[H] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
 	\centering
   \captionsetup{justification=centering}
     	\includegraphics[width=0.6\textwidth]{image/proses-autentikasi.png}
@@ -97,5 +110,4 @@ Setiap beberapa waktu, sistem akan mengambil frame video melalui kamera, jika me
 Jika sistem menemukan jarak vektor yang dibawah treshold, sistem akan menampilkan akses diterima. Setelah itu, sistem akan mengambil data pengguna yang dikenali tersebut, lalu mencatat log akses dan membuka gerbang. Sistem kemudian akan menunggu beberapa saat sebelum akhirnya kembali mengambil frame Video untuk mendeteksi pengguna berikutnya.
 
 \subsection{Alur Sistem Pendaftaran}
-\subsection{}
 

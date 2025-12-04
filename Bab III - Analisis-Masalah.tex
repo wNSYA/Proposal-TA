@@ -20,11 +20,18 @@ Selain alur kontrol akses yang masih manual, kondisi lobi pada Gedung IIP saat i
 \begin{figure}[H] % pilihan opsi yang disarankan: t = top, b = bottom, h = here
 	\centering
   \captionsetup{justification=centering}
-    	\includegraphics[width=0.7\textwidth]{image/denah-sebelum.png}
+    	\includegraphics[width=0.5\textwidth]{image/denah-sebelum.png}
 	\caption{Kondisi lapangan dari lobi Gedung IIP}
 	\label{gambar:lobi-iip}
 \end{figure}
 Berdasarkan gambar tersebut, terlihat bahwa belum ada infrastruktur yang dapat memungkinkan sistem untuk melakukan kontrol akses secara otomatis. Saat ini, jika tidak ada penjaga ataupun resepsionis, siapa saja dapat mengakses lift pada lobi yang menuju area lain pada gedung.
+
+Hasil observasi yang dilakukan pada gedung IIP menunjukkan bahwa saat ini, terdapat beberapa sistem keselamatan yang sudah terpasang pada gedung, yaitu:
+\begin{enumerate}
+    \item Sistem pemantauan, terdiri atas CCTV yang terpasang di berbagai titik pada gedung.
+    \item Sistem kebakaran, terdiri atas pendeteksi asap/api, penyiram air, alat pemadam api, dan alarm darurat. 
+\end{enumerate}
+
 \section{Perumusan Masalah (\textit{Define})}
 Pada tahap ini, informasi yang telah dikumpulkan pada tahap \textit{emphatize} akan dianalisis untuk menemukan dan merumuskan masalah pengguna. Berikut merupakan tahapan \textit{define} yang terdiri atas analisis kebutuhan pengguna, kebutuhan fungsional dan kebutuhan nonfungsional dari sistem yang akan dikembangkan.
 \subsection{Identifikasi Masalah Pengguna}
@@ -62,13 +69,25 @@ Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungs
     \end{enumerate}
 
     \item KF-03 Pengenalan Wajah
-    \begin{enumerate}[a.]
-        \item \textit{Face recognition}, yaitu teknologi autentikasi dengan mendeteksi dan mengenali wajah pengguna.
-        \item RFID (\textit{Radio Frequency Identifier}), yaitu teknologi autentikasi yang menggunakan kartu yang memancarkan radio frekuensi tertentu.
-        \item Sidik jari, yaitu teknologi autentikasi yang memanfaatkan keunikan pola jari manusia untuk mengenali pengguna.
-        \item RFID + Pengenalan Wajah, gabungan dari teknologi pengenalan wajah dan RFID untuk melengkapi kelebihan dan kekurangan masing-masing.
-    \end{enumerate}
+    Alternatif Solusi untuk pengenalan wajah adalah kombinasi dari alternatif solusi untuk \textit{Feature Extraction} dan \textit{Matching} 
+    %     \item ResNet-50 + ArcFace, 
+    %     \item ResNet-50 + MagFace
+    %     \item MobileFaceNet + ArcFace
+    %     \item MobileFaceNet + MagFace
+    % \end{enumerate}
 
+    \textit{Feature Extraction}:
+    \begin{enumerate}[a.]
+        \item ResNet-50, yaitu arsitektur CNN dengan 50 layer yang menggunakan mekanisme residual learning, menjadi backbone umum untuk pengenalan wajah karena mampu mengekstraksi fitur wajah yang kuat dan stabil.
+        \item MobileFaceNet, yaitu ringan dari model pengenalan wajah, cocok digunakan pada perangkat kecil, tetapi masih cukup baik dalam menangkap ciri penting dari wajah.
+    \end{enumerate}
+    \medskip
+    \medskip
+    \textit{Loss Function}:
+    \begin{enumerate}[a.]
+        \item ArcFace, metode pelatihan yang membedakan wajah dengan \"menjauhkan\" jarak antar wajah yang berbeda dan \"mendekatkan\" wajah dari orang yang sama. 
+        \item MagFace, metode pelatihan yang tidak hanya membuat model mengenali wajah, tapi juga bisa menilai kualitas foto wajah, sehingga hasil pengenalannya lebih stabil.
+    \end{enumerate}
     \item KF-04 Manajemen Data
     \begin{enumerate}[a.]
         \item Aplikasi Web, menggunakan website yang dapat diakses melalui browser untuk pendaftaran.
@@ -78,9 +97,9 @@ Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungs
 
     \item KF-05 Integrasi Sistem
     \begin{enumerate}[a.]
-        \item Integrasi berbasis API
-        \item Integrasi berbasis \textit{Message Queue}
-        \item Integrasi berbasis \textit{Webhook}
+        \item Integrasi berbasis API, memungkinkan sistem saling bertukar data secara langsung melalui HTTP \textit{request} dan \textit{response}.
+        \item Integrasi berbasis \textit{Message Queue}, mengirim dan memproses pesan secara asinkron melalui antrian.
+        \item Integrasi berbasis \textit{Webhook}, mengirimkan notifikasi otomatis ke sistem lain setiap adanya peristiwa (\textit{event}) tertentu.
     \end{enumerate}
 
     \item KF-06 Keselamatan/\textit{safety}
@@ -95,7 +114,18 @@ Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungs
 Untuk menentukan pemilihan solusi terbaik, dilakukan analisis kualitatif dan kuantitatif untuk setiap alternatif solusi. Berikut merupakan analisis kualitatif dari alternatif solusi sistem kontrol akses.
 \input{table/tab_alternatif_solusi.tex}
 Setelah itu, kami melakukan analisis kuantitatif dengan metode \textit{Weighted Scoring Model} (WSM) untuk membandingkan setiap alternatif solusi. berikut merupakan analisis WSM dari setiap alternatif solusi setiap kebutuhan.
+\subsubsection{KF-3: Pengenalan Wajah}
+Berikut merupakan kriteria penilaian dari fungsionalitas pengenalan wajah.
+\input{table/wsm_fr3_criteria.tex}
+Berdasarkan kriteria tersebut, berikut merupakan\textit{Weighted Scoring Model} dari setiap alternatif solusi berikut : 
+\begin{enumerate}
+    \item Solusi 1: ResNet-50 + ArcFace
+    \item Solusi 2: ResNet-50 + MagFace
+    \item Solusi 3: MobileFaceNet + ArcFace
+    \item Solusi 4: MobileFaceNet + MagFace  
+\end{enumerate}
 
+\input{table/wsm_fr3.tex} 
 Berdasarkan analisis yang telah dilakukan, solusi terbaik yang dapat kami usulkan adalah:
 \begin{enumerate}
     \item Kontrol Akses: \textit{Swing Barrier}
