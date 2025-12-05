@@ -25,6 +25,16 @@
 % --- ISI TABEL ---
 
 \multicolumn{3}{l}{\textit{\textbf{Verifikasi Fungsional}}} \\
+KF-1 \newline (Kontrol Akses) &
+Melakukan simulasi autentikasi berhasil dan gagal pada karyawan dan tamu untuk memeriksa apakah gerbang merespons sesuai sinyal yang diberikan. &
+Gerbang selalu terbuka ketika autentikasi valid dan tetap tertutup ketika autentikasi tidak valid, dengan tingkat keberhasilan 100\% selama pengujian. \\
+\addlinespace
+
+KF-2 \newline (Pendeteksi Wajah) & 
+Menguji sistem dengan 5 pengguna dan 5 objek bukan wajah untuk memastikan deteksi keberadaan wajah sebelum proses pengenalan dilakukan. & 
+Sistem mendeteksi seluruh wajah pengguna yang muncul di kamera, dan tidak memberikan deteksi ketika objek bukan wajah manusia. \\ 
+\addlinespace
+
 KF-3 \newline (Pengenalan Wajah) & 
 Uji 5 pengguna yang belum terdaftar dan 5 orang yang sudah terdaftar untuk menggunakan sistem pengenalan wajah. & 
 Sistem dapat dengan benar mengenali seluruh pengguna yang terdaftar dan dapat dengan benar tidak mengenali seluruh pengguna yang tidak terdaftar. \\
@@ -46,6 +56,16 @@ Kunci gerbang terlepas (mode bebas dorong) secara instan. \\
 \midrule
 
 \multicolumn{3}{l}{\textit{\textbf{Validasi Nonfungsional}}} \\
+KNF-1 (Akurasi) &
+Pengujian dilakukan dengan 20 sampel pengguna (10 terdaftar dan 10 tidak terdaftar) untuk menghitung jumlah prediksi benar (\textit{true positive} + \textit{true negative}) dan prediksi salah (\textit{false positive} + \textit{false negative}). &
+Tingkat akurasi ≥ 90\%, dihitung dari total prediksi benar dibandingkan seluruh percobaan. \\
+\addlinespace
+
+KNF-2 \newline (Kapasitas Sistem) & 
+Pengujian beban dilakukan dengan mensimulasikan proses pendaftaran dan penyimpanan data hingga mencapai 1200 pengguna, serta melakukan uji akses bergantian oleh beberapa pengguna. & 
+Sistem mampu beroperasi normal pada jumlah 1200 pengguna tanpa error penyimpanan dan seluruh pengguna tetap dapat dilayani. \\ 
+\addlinespace
+
 KNF-3 \newline (Waktu Respon) & 
 Pengujian dengan menghitung waktu dari pengguna menampilkan wajah sampai gerbang dibuka. & 
 Waktu sampai gerbang terbuka kurang dari tiga detik. \\
@@ -53,10 +73,10 @@ Waktu sampai gerbang terbuka kurang dari tiga detik. \\
 
 KNF-4 \newline (Keamanan) & 
 a. Pengujian enkripsi data wajah \newline
-b. Pengujian akses kontrol database \newline
+b. Pengujian akses kontrol \textit{database} \newline
 c. Pengujian integritas data \newline
-d. Pengujian Audit dan Logging & 
-a. Semua file template dan foto harus terenkripsi. \newline
+d. Pengujian Audit dan \textit{Logging} & 
+a. Semua file \textit{template} dan foto harus terenkripsi. \newline
 b. Pengguna tidak sah tidak bisa melihat, mengubah, atau menghapus data wajah. \newline
 c. Sistem menolak autentikasi jika data wajah rusak atau dimanipulasi. \newline
 d. Semua log akses tercatat dan tidak bisa diubah. \\

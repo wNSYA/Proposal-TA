@@ -62,10 +62,9 @@ Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungs
 
     \item KF-2 Deteksi Wajah
     \begin{enumerate}[a.]
-        \item \textit{Face recognition}, yaitu teknologi autentikasi dengan mendeteksi dan mengenali wajah pengguna.
-        \item RFID (\textit{Radio Frequency Identifier}), yaitu teknologi autentikasi yang menggunakan kartu yang memancarkan radio frekuensi tertentu.
-        \item Sidik jari, yaitu teknologi autentikasi yang memanfaatkan keunikan pola jari manusia untuk mengenali pengguna.
-        \item RFID + Pengenalan Wajah, gabungan dari teknologi pengenalan wajah dan RFID untuk melengkapi kelebihan dan kekurangan masing-masing.
+        \item RetinaFace, merupakan detektor wajah satu tahap dengan akurasi tinggi yang mampu mendeteksi wajah dalam berbagai kondisi pose dan pencahayaan. Model ini memanfaatkan landmark detection untuk meningkatkan stabilitas proses alignment pada tahap selanjutnya. 
+        \item YOLO-face adalah pendekatan deteksi wajah berbasis arsitektur YOLO yang berorientasi pada kecepatan dan kemampuan real-time. Metode ini memperlakukan wajah sebagai objek yang dideteksi melalui bounding box secara langsung, sehingga cocok untuk implementasi sistem kontrol akses yang memerlukan respons cepat. Model YOLO-based face detector telah banyak digunakan dalam sistem deteksi wajah pada perangkat edge dan aplikasi absensi otomatis.
+        \item Blazeface adalah detektor wajah yang dirancang untuk efisiensi tinggi pada perangkat mobile dengan sumber daya terbatas. Dengan ukuran model yang kecil dan latensi sangat rendah, BlazeFace dapat digunakan untuk prototipe sistem atau perangkat kontrol akses dengan komputasi ringan tanpa mengorbankan performa secara signifikan.
     \end{enumerate}
 
     \item KF-3 Pengenalan Wajah
@@ -105,7 +104,7 @@ Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungs
 
     \item KF-6 Keselamatan/\textit{safety}
     \begin{enumerate}[a.]
-        \item Gerbang otomatis\textit{fail-safe}, yaitu gerbang yang memiliki kondisi terbuka saat tidak mendapatkan aliran listrik.
+        \item Gerbang otomatis \textit{fail-safe}, yaitu gerbang yang memiliki kondisi terbuka saat tidak mendapatkan aliran listrik.
         \item Tombol manual darurat, yaitu tombol yang dapat membuka gerbang tanpa autentikasi.
         \item Kombinasi Gerbang otomatis \textit{fail-safe} + Tombol manual darurat, yaitu penggabungan solusi yang memungkinkan gerbang terbuka saat listrik padam atau saat tombol ditekan, memastikan aspek keselamatan jika salah satu gagal berfungsi.
     \end{enumerate}
