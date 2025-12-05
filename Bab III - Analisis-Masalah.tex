@@ -62,9 +62,9 @@ Berikut merupakan alternatif solusi yang didapatkan untuk setiap kebutuhan fungs
 
     \item KF-2 Deteksi Wajah
     \begin{enumerate}[a.]
-        \item RetinaFace, merupakan detektor wajah satu tahap dengan akurasi tinggi yang mampu mendeteksi wajah dalam berbagai kondisi pose dan pencahayaan. Model ini memanfaatkan landmark detection untuk meningkatkan stabilitas proses alignment pada tahap selanjutnya. 
-        \item YOLO-face adalah pendekatan deteksi wajah berbasis arsitektur YOLO yang berorientasi pada kecepatan dan kemampuan real-time. Metode ini memperlakukan wajah sebagai objek yang dideteksi melalui bounding box secara langsung, sehingga cocok untuk implementasi sistem kontrol akses yang memerlukan respons cepat. Model YOLO-based face detector telah banyak digunakan dalam sistem deteksi wajah pada perangkat edge dan aplikasi absensi otomatis.
-        \item Blazeface adalah detektor wajah yang dirancang untuk efisiensi tinggi pada perangkat mobile dengan sumber daya terbatas. Dengan ukuran model yang kecil dan latensi sangat rendah, BlazeFace dapat digunakan untuk prototipe sistem atau perangkat kontrol akses dengan komputasi ringan tanpa mengorbankan performa secara signifikan.
+        \item RetinaFace, merupakan detektor wajah satu tahap dengan akurasi tinggi yang mampu mendeteksi wajah dalam berbagai kondisi pose dan pencahayaan. Model ini memanfaatkan landmark detection untuk meningkatkan stabilitas proses alignment pada tahap selanjutnya \parencite{deng2020retinaface}. 
+        \item YOLO-face adalah pendekatan deteksi wajah berbasis arsitektur YOLO yang berorientasi pada kecepatan dan kemampuan real-time. Metode ini memperlakukan wajah sebagai objek yang dideteksi melalui bounding box secara langsung, sehingga cocok untuk implementasi sistem kontrol akses yang memerlukan respons cepat. Model YOLO-based face detector telah banyak digunakan dalam sistem deteksi wajah pada perangkat edge dan aplikasi absensi otomatis \parencite{yu2024yolo_facev2}.
+        \item Blazeface adalah detektor wajah yang dirancang untuk efisiensi tinggi pada perangkat mobile dengan sumber daya terbatas. Dengan ukuran model yang kecil dan latensi sangat rendah, BlazeFace dapat digunakan untuk prototipe sistem atau perangkat kontrol akses dengan komputasi ringan tanpa mengorbankan performa secara signifikan \parencite{bazarevsky2019blazeface}.
     \end{enumerate}
 
     \item KF-3 Pengenalan Wajah
