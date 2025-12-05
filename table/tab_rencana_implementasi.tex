@@ -1,4 +1,4 @@
-\begin{longtable}{l p{0.7\textwidth}}
+\begin{longtable}{l p{0.55\textwidth}} 
 \caption{Rencana implementasi prototipe}
 \label{tab:rencana-implementasi-detail} \\
 \toprule
@@ -13,25 +13,38 @@
 \bottomrule
 \endlastfoot
 
-\textit{Perangkat Keras (x2 Set)} & \\
+\textit{Perangkat Keras (Sistem Wajah)} & \\
 Unit Pemrosesan & 2 unit Raspberry Pi 4 Model B (4GB RAM). Dipilih karena keseimbangan antara performa untuk \textit{edge computing} dan ketersediaan \textit{port} GPIO. \\
-Sensor Kamera & 2 unit Raspberry Pi Camera Module v3. Digunakan untuk akuisisi citra wajah dengan fitur HDR. \\
+Sensor Kamera & 2 unit Raspberry Pi Camera Module v3 (Sony IMX708, 12MP, HDR, Autofocus). \\
 Layar Display & 2 unit LCD 5 inch HDMI. Untuk antarmuka visual pengguna. \\
-Aktuator Kunci & Solenoid Door Lock 12V yang dikontrol melalui 5V Relay Module (Simulasi). \\
+Modul Kontrol & 5V Relay Module (2-Channel) untuk integrasi sinyal buka ke gerbang. \\
 Pendukung & Power Supply 5V 3A, Fan Cooling, SSD Eksternal 128GB, dan kabel \textit{jumper}. \\
 \midrule
+
+\textit{Gerbang Fisik (Swing Barrier)} & \\
+Model & \textbf{IMS347 Slim Swing Turnstile} (Entragate). \\
+Dimensi Unit & Panjang 1400 mm $\times$ Lebar 185 mm $\times$ Tinggi 1020 mm. \\
+Lebar Jalur & 600 mm - 900 mm (Fleksibel untuk aksesibilitas). \\
+Material & Kabinet: Stainless Steel SUS 304. Lengan: Akrilik/Tempered Glass. \\
+Mekanisme & DC Brushless Motor dengan kecepatan buka 0.2 detik. \\
+Fitur Keamanan & \textit{Anti-tailgating}, sensor inframerah anti-jepit, dan mode darurat (\textit{fail-safe}) otomatis terbuka saat listrik padam. \\
+Interface & Input sinyal \textit{Dry Contact} (Relay) dan komunikasi RS485/RS232. \\
+\midrule
+
 \textit{Perangkat Lunak} & \\
-Sistem Operasi & Raspberry Pi OS berbasis Debian. \\
-Bahasa & Python 3. \\
-Pustaka Utama & OpenCV, Dlib, RPi.GPIO. \\
+Sistem Operasi & Raspberry Pi OS (Debian Bookworm 64-bit). \\
+Bahasa & Python 3.11. \\
+Pustaka Utama & OpenCV, TensorFlow Lite (untuk FaceNet), Ultralytics (untuk YOLOv8), RPi.GPIO. \\
 \midrule
-\textit{Lingkungan} & \\
-Lokasi & Prototipe akan diuji pada simulasi pintu masuk di Lobi Gedung IIP. \\
-Konfigurasi & Perangkat akan dipasang pada ketinggian rata-rata wajah orang berdiri, yaitu sekitar 160 cm sampai 170 cm. \\
+
+\textit{Lingkungan Pengujian} & \\
+Lokasi & Simulasi pintu masuk di Lobi, Gedung IIP. \\
+Konfigurasi & Kamera dipasang pada ketinggian 160-170 cm pada tiang gerbang. \\
 \midrule
+
 \textit{Estimasi Biaya} & \\
-Perangkat Keras Utama & Rp 5.000.000 (untuk 2 unit sistem wajah) \\
-Komponen Pendukung & Rp 500.000 \\
+Perangkat Elektronik & Rp 5.500.000 (Raspberry Pi, Kamera, Layar, dll). \\
+Unit Gerbang Fisik & Rp 18.000.000 (1 Jalur Swing Barrier IMS347). \\
 \midrule
-\textit{Total Estimasi} & \textbf{Rp 5.500.000} \\
+\textit{Total Estimasi} & \textbf{Rp 23.500.000} \\
 \end{longtable}
