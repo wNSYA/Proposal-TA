@@ -1,0 +1,62 @@
+\chapter*{LAMPIRAN D. PERHITUNGAN ESTIMASI KEBUTUHAN PENYIMPANAN DATA}
+\addcontentsline{toc}{chapter}{LAMPIRAN D PERHITUNGAN ESTIMASI KEBUTUHAN PENYIMPANAN DATA}
+
+\section*{D.1 Opsi Media Penyimpanan}
+Berdasarkan analisis kebutuhan sistem, terdapat beberapa opsi media penyimpanan yang dievaluasi untuk menyimpan data citra wajah dan basis data pengguna:
+
+\begin{enumerate}
+    \item \textbf{Penyimpanan Fisik (\textit{Local Storage}):}
+    \begin{enumerate}
+        \item SSD Eksternal
+        \item HDD Eksternal
+        \item Micro SD (Khusus untuk perangkat \textit{Edge}/Raspberry Pi)
+    \end{enumerate}
+    \item \textbf{Penyimpanan Awan (\textit{Cloud Storage}):}
+    \begin{enumerate}
+        \item Google Cloud Platform (GCP)
+        \item Amazon Web Services (AWS) S3
+        \item Supabase Storage
+    \end{enumerate}
+\end{enumerate}
+
+\section*{D.2 Estimasi Kapasitas Penyimpanan Citra (Server/Cloud)}
+Perhitungan ini digunakan untuk mengestimasi kebutuhan ruang penyimpanan bagi data mentah (\textit{raw images}) yang digunakan untuk proses pendaftaran dan validasi visual.
+
+\textbf{Parameter:}
+\begin{enumerate}
+    \item Total Kapasitas Pekerja: 1.200 orang
+    \item Asumsi Pengunjung Mingguan: 200 orang
+    \item Total Basis Pengguna ($N$): $1.200 + 200 = 1.400$ orang
+    \item Jumlah Sampel Foto per Orang: 3 foto
+    \item Ukuran Maksimum per Foto: 400 KB
+    \item Retensi Foto Pengunjung: 7 hari (Siklus mingguan)
+\end{enumerate}
+
+\textbf{Kalkulasi Total:}
+$$
+\begin{aligned}
+Total \ Storage &= N \times \text{Jml Foto} \times \text{Ukuran} \\
+&= 1.400 \text{ orang} \times 3 \text{ foto} \times 400 \text{ KB} \\
+&= 1.680.000 \text{ KB} \\
+&\approx \mathbf{1,68 \text{ GB}}
+\end{aligned}
+$$
+
+\section*{D.3 Estimasi Penyimpanan Vektor Wajah (\textit{Edge Device})}
+Pada perangkat \textit{edge} (Raspberry Pi), sistem tidak menyimpan foto asli melainkan hanya menyimpan representasi matematis (vektor) dari wajah untuk mempercepat proses pencocokan dan menghemat ruang.
+
+\textbf{Parameter:}
+\begin{enumerate}
+    \item Ukuran Vektor Fitur (Embeddings): 512 Byte s.d. 2 KB (tergantung model)
+    \item Total Pengguna: 1.400 orang
+\end{enumerate}
+
+\textbf{Kalkulasi:}
+$$
+\begin{aligned}
+Min \ Storage &= 1.400 \times 3 \times 512 \text{ Byte} = 2.150.400 \text{ Byte} \approx \mathbf{2,15 \text{ MB}} \\
+Max \ Storage &= 1.400 \times 3 \times 2 \text{ KB} = 8.400 \text{ KB} \approx \mathbf{8,4 \text{ MB}}
+\end{aligned}
+$$
+
+\vspace{1cm}

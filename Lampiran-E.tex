@@ -1,0 +1,52 @@
+\chapter*{LAMPIRAN E. PERHITUNGAN KAPASITAS DAN JUMLAH GERBANG}
+\addcontentsline{toc}{chapter}{LAMPIRAN E PERHITUNGAN KAPASITAS DAN JUMLAH GERBANG}
+
+Perhitungan ini bertujuan untuk menentukan jumlah minimum unit \textit{turnstile} (gerbang) yang diperlukan untuk mencegah penumpukan antrean pada jam sibuk (\textit{peak hour}).
+
+\section*{E.1 Parameter}
+\begin{enumerate}
+    \item \textbf{Total Populasi Gedung:} 1.200 orang.
+    \item \textbf{Pola Kedatangan:} Asumsi 60\% karyawan tiba dalam jendela waktu 30 menit sebelum jam kerja.
+    \item \textbf{Waktu Layanan (\textit{Service Time}):} 3 detik per orang (waktu rata-rata deteksi wajah hingga gerbang terbuka).
+\end{enumerate}
+
+\section*{E.2 Analisis Beban Puncak (\textit{Peak Load})}
+Volume kedatangan pada jam sibuk dihitung sebagai berikut:
+$$
+\begin{aligned}
+Volume_{peak} &= 60\% \times 1.200 \text{ orang} \\
+&= 720 \text{ orang}
+\end{aligned}
+$$
+
+Asumsi kedatangan tersebar merata (\textit{uniform distribution}) selama 30 menit, maka laju kedatangan (\textit{Arrival Rate}) adalah:
+$$
+\begin{aligned}
+Arrival \ Rate (\lambda) &= \frac{720 \text{ orang}}{30 \text{ menit}} \\
+&= \mathbf{24 \text{ orang/menit}}
+\end{aligned}
+$$
+
+\section*{E.3 Kapasitas Pelayanan (\textit{Throughput})}
+Kapasitas maksimal satu unit gerbang (\textit{Service Rate}) dalam satu menit:
+$$
+\begin{aligned}
+Service \ Rate (\mu) &= \frac{60 \text{ detik}}{3 \text{ detik/orang}} \\
+&= \mathbf{20 \text{ orang/menit}}
+\end{aligned}
+$$
+
+\section*{E.4 Penentuan Jumlah Unit}
+Rasio kebutuhan gerbang dihitung dengan membagi laju kedatangan dengan kapasitas pelayanan:
+$$
+\begin{aligned}
+N_{gerbang} &= \frac{Arrival \ Rate (\lambda)}{Service \ Rate (\mu)} \\
+&= \frac{24}{20} \\
+&= \mathbf{1,2 \text{ Unit}}
+\end{aligned}
+$$
+
+\section*{E.5 Kesimpulan}
+Secara teoritis, dibutuhkan \textbf{1,2 gerbang}. Karena jumlah gerbang harus bilangan bulat dan nilai $>1$ mengindikasikan bahwa 1 gerbang tidak akan sanggup menampung antrean (akan terjadi \textit{bottleneck}), maka kebutuhan minimum adalah \textbf{2 unit}.
+
+Untuk memastikan keandalan sistem (\textit{reliability}) dan mengantisipasi kerusakan alat, disarankan menggunakan konfigurasi \textbf{3 unit gerbang} (Redundansi N+1).
